@@ -23,7 +23,7 @@
     --light-primary-button-bg: rgba(255, 140, 0, 0.7); /* Naranja transparente para botón primario */
     --light-primary-button-hover-bg: rgba(255, 140, 0, 0.9); /* Naranja más opaco para hover */
     --light-primary-button-border: rgba(255, 140, 0, 0.9); /* Borde de botón primario */
-    --light-card-border-hover: rgba(255, 140, 0, 0.3); /* Borde de tarjeta en hover */
+    --light-card-border-hover: rgba(0, 0, 0, 0.2); /* Borde de tarjeta en hover */
     --light-border: rgba(0, 0, 0, 0.1);
 
     --accent-color: #ff8c00; /* Naranja */
@@ -421,19 +421,30 @@ body.light-mode .slider .icon {
 /* Media Queries para Responsividad Móvil */
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Apila el logo y la navegación verticalmente */
+        flex-direction: column; /* Apila el logo y la sección de navegación verticalmente */
         align-items: center; /* Centra los elementos */
         gap: 1.5rem; /* Espacio entre el logo y la sección de navegación */
         padding: 1.5rem 5%; /* Ajusta el padding para móvil */
     }
 
     nav {
-        /* Oculta completamente la navegación y el switch en móvil */
+        /* Hacemos visible la sección nav, pero solo mostraremos el switch */
+        display: flex;
+        flex-direction: row; /* Para que el switch no se apile si hubiera más elementos */
+        justify-content: center; /* Centra el switch horizontalmente */
+        align-items: center;
+        width: 100%; /* Ocupa todo el ancho disponible para centrar bien */
+        gap: 0; /* No necesitamos espacio aquí si solo hay un elemento */
+    }
+
+    .nav-links {
+        /* Oculta los enlaces de navegación en móvil */
         display: none;
     }
 
     .logo {
         font-size: 1.5rem; /* Ajusta el tamaño del logo para móvil */
+        margin-bottom: 0.5rem; /* Pequeño espacio debajo del logo */
     }
 
     h1 {
@@ -452,4 +463,5 @@ body.light-mode .slider .icon {
         grid-template-columns: 1fr; /* Una columna para proyectos en móvil */
     }
 }
+
 
