@@ -3,25 +3,27 @@
     --dark-bg: #1a1a1a;
     --dark-text: #e0e0e0;
     --dark-secondary-bg: #2a2a2a; /* Para tarjetas de proyecto, etc. */
-    --dark-header-bg-transparent: rgba(26, 26, 26, 0.7); /* Header más transparente */
+    --dark-header-bg-transparent: rgba(26, 26, 26, 0.8); /* Header más transparente */
     --dark-liquid-button-bg: rgba(255, 255, 255, 0.08); /* Fondo transparente para botones normales */
     --dark-liquid-button-hover-bg: rgba(255, 255, 255, 0.15); /* Fondo hover de botones normales */
     --dark-liquid-button-border: rgba(255, 255, 255, 0.2); /* Borde de botones normales */
     --dark-primary-button-bg: rgba(255, 140, 0, 0.7); /* Naranja transparente para botón primario */
     --dark-primary-button-hover-bg: rgba(255, 140, 0, 0.9); /* Naranja más opaco para hover */
     --dark-primary-button-border: rgba(255, 140, 0, 0.9); /* Borde de botón primario */
+    --dark-card-border-hover: rgba(255, 140, 0, 0.3); /* Borde de tarjeta en hover */
     --dark-border: rgba(255, 255, 255, 0.1);
 
     --light-bg: #f0f0f0;
     --light-text: #333;
     --light-secondary-bg: #ffffff; /* Para tarjetas de proyecto, etc. */
-    --light-header-bg-transparent: rgba(255, 255, 255, 0.7); /* Header más transparente */
+    --light-header-bg-transparent: rgba(255, 255, 255, 0.8); /* Header más transparente */
     --light-liquid-button-bg: rgba(0, 0, 0, 0.05); /* Fondo transparente para botones normales */
     --light-liquid-button-hover-bg: rgba(0, 0, 0, 0.1); /* Fondo hover de botones normales */
     --light-liquid-button-border: rgba(0, 0, 0, 0.15); /* Borde de botones normales */
     --light-primary-button-bg: rgba(255, 140, 0, 0.7); /* Naranja transparente para botón primario */
     --light-primary-button-hover-bg: rgba(255, 140, 0, 0.9); /* Naranja más opaco para hover */
     --light-primary-button-border: rgba(255, 140, 0, 0.9); /* Borde de botón primario */
+    --light-card-border-hover: rgba(255, 140, 0, 0.3); /* Borde de tarjeta en hover */
     --light-border: rgba(0, 0, 0, 0.1);
 
     --accent-color: #ff8c00; /* Naranja */
@@ -33,12 +35,6 @@
 body.dark-mode {
     background-color: var(--dark-bg);
     color: var(--dark-text);
-}
-
-body.dark-mode header,
-body.dark-mode .project-card {
-    background-color: var(--dark-secondary-bg); /* Esto se sobreescribirá en header */
-    border: 1px solid var(--dark-border);
 }
 
 body.dark-mode header {
@@ -66,17 +62,20 @@ body.dark-mode .liquid-button.primary:hover {
     color: #fff; /* Asegura que el texto blanco se mantenga */
 }
 
+body.dark-mode .project-card {
+    background-color: var(--dark-secondary-bg);
+    border: 1px solid var(--dark-border);
+}
+body.dark-mode .project-card:hover {
+    border-color: var(--dark-card-border-hover);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra más pronunciada en hover */
+}
+
 
 /* Modo claro */
 body.light-mode {
     background-color: var(--light-bg);
     color: var(--light-text);
-}
-
-body.light-mode header,
-body.light-mode .project-card {
-    background-color: var(--light-secondary-bg); /* Esto se sobreescribirá en header */
-    border: 1px solid var(--light-border);
 }
 
 body.light-mode header {
@@ -104,6 +103,15 @@ body.light-mode .liquid-button.primary:hover {
     color: #fff; /* Asegura que el texto blanco se mantenga */
 }
 
+body.light-mode .project-card {
+    background-color: var(--light-secondary-bg);
+    border: 1px solid var(--light-border);
+}
+body.light-mode .project-card:hover {
+    border-color: var(--light-card-border-hover);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra más pronunciada en hover */
+}
+
 
 /* Estilos generales */
 * {
@@ -115,7 +123,7 @@ body.light-mode .liquid-button.primary:hover {
 body {
     font-family: var(--body-font-family); /* Inter para el cuerpo */
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* Transición más suave */
 }
 
 a {
@@ -141,14 +149,14 @@ header {
     width: 100%;
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between; /* Logo a la izquierda, nav a la derecha */
+    justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(15px); /* Más blur para el efecto liquid glass */
-    -webkit-backdrop-filter: blur(15px);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(20px); /* Más blur para un efecto liquid glass más notorio */
+    -webkit-backdrop-filter: blur(20px);
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out; /* Transición más suave */
 }
 
 .logo {
@@ -178,21 +186,21 @@ nav { /* Esta nav ahora contiene los enlaces y el switch */
     align-items: center;
     justify-content: center;
     /* Transiciones suaves para todos los cambios en hover */
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px); /* Más blur para los botones */
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px); /* Más blur para los botones */
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .liquid-button.primary {
     color: #fff;
     text-shadow: none;
-    /* Los colores de fondo y borde ya están definidos con transparencia en las variables */
 }
 
 .liquid-button.primary:hover {
     filter: brightness(1.1); /* Ligeramente más brillante al pasar el ratón */
-    transform: translateY(-3px); /* Un poco más de movimiento suave */
+    transform: translateY(-4px); /* Un poco más de movimiento suave */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra sutil para el efecto de levantamiento */
 }
 
 /* Contenido Principal */
@@ -248,12 +256,12 @@ p {
     padding: 2rem;
     border-radius: 15px;
     text-align: left;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Transiciones suaves para todos los cambios en hover */
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: translateY(-8px); /* Más levantamiento suave */
 }
 
 .project-card h3 {
@@ -290,7 +298,7 @@ footer {
 .theme-switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 70px; /* Switch un poco más largo */
     height: 34px;
 }
 
@@ -309,9 +317,9 @@ footer {
     bottom: 0;
     background-color: var(--dark-liquid-button-bg); /* Fondo del switch */
     border: 1px solid var(--dark-liquid-button-border);
-    transition: .4s;
-    backdrop-filter: blur(8px); /* Más blur al switch */
-    -webkit-backdrop-filter: blur(8px);
+    transition: .5s ease-in-out; /* Transición más suave */
+    backdrop-filter: blur(10px); /* Más blur al switch */
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 34px; /* Asegurar bordes redondeados */
 }
 
@@ -328,7 +336,7 @@ body.light-mode .slider {
     left: 4px;
     bottom: 4px;
     background-color: var(--accent-color);
-    transition: .4s;
+    transition: .5s ease-in-out; /* Transición más suave */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,7 +350,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(36px); /* Ajustado para el nuevo ancho del switch (70px - 4px - 4px - 26px = 36px) */
 }
 
 /* Iconos dentro del switch */
@@ -351,16 +359,16 @@ input:checked + .slider:before {
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .slider .sun {
-    left: 8px;
+    left: 10px; /* Ajustado para centrar mejor */
     opacity: 0;
 }
 
 .slider .moon {
-    right: 8px;
+    right: 10px; /* Ajustado para centrar mejor */
     opacity: 1;
 }
 
@@ -420,14 +428,8 @@ body.light-mode .slider .icon {
     }
 
     nav {
-        flex-direction: column; /* Apila los enlaces y el switch verticalmente */
-        gap: 1.5rem; /* Espacio entre el bloque de enlaces y el switch */
-        align-items: center; /* Centra los elementos dentro de nav */
-    }
-
-    .nav-links {
-        flex-direction: column; /* Apila los enlaces individuales verticalmente */
-        gap: 0.8rem; /* Espacio entre cada enlace */
+        /* Oculta completamente la navegación y el switch en móvil */
+        display: none;
     }
 
     .logo {
