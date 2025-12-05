@@ -3,20 +3,24 @@
     --dark-bg: #1a1a1a;
     --dark-text: #e0e0e0;
     --dark-secondary-bg: #2a2a2a; /* Para tarjetas de proyecto, etc. */
-    --dark-header-bg-transparent: rgba(26, 26, 26, 0.6); /* Header más transparente */
+    --dark-header-bg-transparent: rgba(26, 26, 26, 0.7); /* Header más transparente */
     --dark-liquid-button-bg: rgba(255, 255, 255, 0.08); /* Fondo transparente para botones normales */
+    --dark-liquid-button-hover-bg: rgba(255, 255, 255, 0.15); /* Fondo hover de botones normales */
     --dark-liquid-button-border: rgba(255, 255, 255, 0.2); /* Borde de botones normales */
     --dark-primary-button-bg: rgba(255, 140, 0, 0.7); /* Naranja transparente para botón primario */
+    --dark-primary-button-hover-bg: rgba(255, 140, 0, 0.9); /* Naranja más opaco para hover */
     --dark-primary-button-border: rgba(255, 140, 0, 0.9); /* Borde de botón primario */
     --dark-border: rgba(255, 255, 255, 0.1);
 
     --light-bg: #f0f0f0;
     --light-text: #333;
     --light-secondary-bg: #ffffff; /* Para tarjetas de proyecto, etc. */
-    --light-header-bg-transparent: rgba(255, 255, 255, 0.6); /* Header más transparente */
+    --light-header-bg-transparent: rgba(255, 255, 255, 0.7); /* Header más transparente */
     --light-liquid-button-bg: rgba(0, 0, 0, 0.05); /* Fondo transparente para botones normales */
+    --light-liquid-button-hover-bg: rgba(0, 0, 0, 0.1); /* Fondo hover de botones normales */
     --light-liquid-button-border: rgba(0, 0, 0, 0.15); /* Borde de botones normales */
     --light-primary-button-bg: rgba(255, 140, 0, 0.7); /* Naranja transparente para botón primario */
+    --light-primary-button-hover-bg: rgba(255, 140, 0, 0.9); /* Naranja más opaco para hover */
     --light-primary-button-border: rgba(255, 140, 0, 0.9); /* Borde de botón primario */
     --light-border: rgba(0, 0, 0, 0.1);
 
@@ -47,11 +51,19 @@ body.dark-mode .liquid-button {
     border: 1px solid var(--dark-liquid-button-border);
     color: var(--dark-text);
 }
+body.dark-mode .liquid-button:hover {
+    background: var(--dark-liquid-button-hover-bg);
+    color: var(--accent-color); /* Cambia de color al pasar el cursor */
+}
 
 body.dark-mode .liquid-button.primary {
     background: var(--dark-primary-button-bg);
     border-color: var(--dark-primary-button-border);
     color: #fff;
+}
+body.dark-mode .liquid-button.primary:hover {
+    background: var(--dark-primary-button-hover-bg);
+    color: #fff; /* Asegura que el texto blanco se mantenga */
 }
 
 
@@ -77,11 +89,19 @@ body.light-mode .liquid-button {
     border: 1px solid var(--light-liquid-button-border);
     color: var(--light-text);
 }
+body.light-mode .liquid-button:hover {
+    background: var(--light-liquid-button-hover-bg);
+    color: var(--accent-color); /* Cambia de color al pasar el cursor */
+}
 
 body.light-mode .liquid-button.primary {
     background: var(--light-primary-button-bg);
     border-color: var(--light-primary-button-border);
     color: #fff;
+}
+body.light-mode .liquid-button.primary:hover {
+    background: var(--light-primary-button-hover-bg);
+    color: #fff; /* Asegura que el texto blanco se mantenga */
 }
 
 
@@ -126,8 +146,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px); /* Efecto liquid glass para el header */
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px); /* Más blur para el efecto liquid glass */
+    -webkit-backdrop-filter: blur(15px);
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -157,10 +177,11 @@ nav { /* Esta nav ahora contiene los enlaces y el switch */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    /* Transiciones suaves para todos los cambios en hover */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px); /* Blur para los botones */
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px); /* Más blur para los botones */
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .liquid-button.primary {
@@ -171,7 +192,7 @@ nav { /* Esta nav ahora contiene los enlaces y el switch */
 
 .liquid-button.primary:hover {
     filter: brightness(1.1); /* Ligeramente más brillante al pasar el ratón */
-    transform: translateY(-2px);
+    transform: translateY(-3px); /* Un poco más de movimiento suave */
 }
 
 /* Contenido Principal */
@@ -289,8 +310,9 @@ footer {
     background-color: var(--dark-liquid-button-bg); /* Fondo del switch */
     border: 1px solid var(--dark-liquid-button-border);
     transition: .4s;
-    backdrop-filter: blur(5px); /* Añadir blur al switch también */
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px); /* Más blur al switch */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 34px; /* Asegurar bordes redondeados */
 }
 
 body.light-mode .slider {
@@ -311,6 +333,7 @@ body.light-mode .slider {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    border-radius: 50%; /* Asegurar forma de círculo */
 }
 
 input:checked + .slider {
@@ -320,15 +343,6 @@ input:checked + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
 
 /* Iconos dentro del switch */
@@ -396,35 +410,44 @@ body.light-mode .slider .icon {
     color: var(--light-text); /* Color para los iconos en modo claro */
 }
 
-/* Media Queries para Responsividad */
+/* Media Queries para Responsividad Móvil */
 @media (max-width: 768px) {
-    nav {
-        /* Para móvil, podemos reorganizar o usar un menú hamburguesa */
-        flex-direction: column;
-        gap: 1rem;
+    header {
+        flex-direction: column; /* Apila el logo y la navegación verticalmente */
+        align-items: center; /* Centra los elementos */
+        gap: 1.5rem; /* Espacio entre el logo y la sección de navegación */
+        padding: 1.5rem 5%; /* Ajusta el padding para móvil */
     }
+
+    nav {
+        flex-direction: column; /* Apila los enlaces y el switch verticalmente */
+        gap: 1.5rem; /* Espacio entre el bloque de enlaces y el switch */
+        align-items: center; /* Centra los elementos dentro de nav */
+    }
+
     .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
+        flex-direction: column; /* Apila los enlaces individuales verticalmente */
+        gap: 0.8rem; /* Espacio entre cada enlace */
     }
 
     .logo {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Ajusta el tamaño del logo para móvil */
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem; /* Encabezado principal más pequeño en móvil */
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Subencabezados más pequeños en móvil */
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Una columna para proyectos en móvil */
     }
 }
+
