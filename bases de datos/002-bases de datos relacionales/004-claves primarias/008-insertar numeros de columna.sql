@@ -8,8 +8,8 @@ INSERT INTO empleados
 )
 VALUES (
     NULL,
-    'Andres',
-    'Ruiz',
-    '698547',
-    'andresruiz@gmail.com'
+    'Alex',
+    'Sytnyk',
+    '624802974',
+    'alex.sytnyk729@gmail.com'
 );

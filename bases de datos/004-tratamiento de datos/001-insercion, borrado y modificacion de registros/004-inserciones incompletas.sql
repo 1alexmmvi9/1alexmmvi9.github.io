@@ -7,6 +7,6 @@ INSERT INTO clientes
 VALUES
 (
     NULL,
-    'Ruiz Torres',
-    'Andres'
+    'Sytnyk',
+    'Alex'
 );

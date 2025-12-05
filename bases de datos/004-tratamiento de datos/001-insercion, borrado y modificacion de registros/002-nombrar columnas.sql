@@ -10,9 +10,9 @@ INSERT INTO clientes
 VALUES
 (
     NULL,
-    'Andres',
-    'Ruiz Torres',
-    'andresruiztorres782@gmial.com',
+    'Alex',
+    'Sytnyk',
+    'alex.sytnyk729@gmial.com',
     'Valencia',
-    '2005-11-23'
+    '2006-04-15'
 );
