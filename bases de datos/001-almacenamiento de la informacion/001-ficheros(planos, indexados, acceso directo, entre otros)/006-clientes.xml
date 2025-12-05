@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientes>
+      <clientes>
+          <nombre>
+            Andrés
+          </nombre>
+          <apellidos>
+            Ruiz Torres
+          </apellidos>
+          <telefono>
+            548945
+          </telefono>
+          <email>
+            andresruiztorres782@gmail.com
+          </email>
+    </clientes>
+      <clientes>
+          <nombre>
+            Andrés
+          </nombre>
+          <apellidos>
+            Ruiz Torres
+          </apellidos>
+          <telefono>
+            548945
+          </telefono>
+          <email>
+            andresruiztorres782@gmail.com
+          </email>
+    </clientes>
+</clientes>

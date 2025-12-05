@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<andres:pieza>
+	<andres:nombre>Camiseta azul</andres:nombre>
+	<andres:precio>4.76</andres:precio>
+	<andres:color>azul</andres:color>
+</andres:pieza>

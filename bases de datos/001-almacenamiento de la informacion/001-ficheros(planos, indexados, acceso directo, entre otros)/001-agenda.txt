@@ -1,0 +1,5 @@
+Cliente1
+Nombre: Pepe
+Apellidos: Garcia
+Teléfono: 569754
+email: pepe@garcia.com

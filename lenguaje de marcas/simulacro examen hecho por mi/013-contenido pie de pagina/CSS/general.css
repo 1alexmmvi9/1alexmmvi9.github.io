@@ -1,0 +1,12 @@
+ header, body{
+        margin: 0px;
+        padding: 0px;
+     font-family:"Open Sans",sans-serif;
+}
+.negrita{
+    
+    font-weight:bold;
+}
+p a{
+    text-decoration: none;
+}

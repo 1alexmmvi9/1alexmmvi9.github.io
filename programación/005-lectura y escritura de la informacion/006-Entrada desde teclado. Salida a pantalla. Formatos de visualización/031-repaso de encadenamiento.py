@@ -1,0 +1,19 @@
+nombre = "Andrés"
+apellidos = "Ruiz"
+
+print("Mi nombre es "+nombre+" y mis apellidos son "+apellidos)
+
+print('Mi nombre es '+nombre+' y mis apellidos son '+apellidos)
+
+
+print("""
+    Mi nombre es
+    """+nombre+"""
+    y mis apellidos son
+    """+apellidos)
+
+print('''
+    Mi nombre es
+    '''+nombre+'''
+    y mis apellidos son
+    '''+apellidos)
