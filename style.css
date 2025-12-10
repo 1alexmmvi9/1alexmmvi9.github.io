@@ -418,6 +418,16 @@ body.light-mode .slider .icon {
     color: var(--light-text); /* Color para los iconos en modo claro */
 }
 
+/* Sección de Contacto - Grupo de Botones */
+.contact-buttons-group {
+    display: flex; /* Para que los botones se pongan en fila */
+    flex-wrap: wrap; /* Permite que los botones salten de línea en pantallas pequeñas */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 1.5rem; /* Espacio entre los botones */
+    margin-top: 2rem; /* Espacio por encima de los botones */
+    margin-bottom: 2rem; /* Espacio por debajo de los botones */
+}
+
 /* Media Queries para Responsividad Móvil */
 @media (max-width: 768px) {
     header {
@@ -462,6 +472,21 @@ body.light-mode .slider .icon {
     .project-grid {
         grid-template-columns: 1fr; /* Una columna para proyectos en móvil */
     }
+
+    /* Ajustes para el grupo de botones de contacto en móvil */
+    .contact-buttons-group {
+        flex-direction: column; /* Apila los botones verticalmente en móvil */
+        gap: 1rem; /* Espacio entre los botones apilados */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        align-items: center; /* Centra los botones apilados */
+    }
+
+    /* Si los botones individuales son demasiado grandes para móvil, puedes ajustarlos */
+    .contact-buttons-group .liquid-button {
+        width: 80%; /* Ocupa un 80% del ancho del contenedor en móvil */
+        max-width: 300px; /* Limita el ancho máximo para que no sean demasiado anchos */
+    }
 }
+
 
 
