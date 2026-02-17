@@ -3,26 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Oleksandr Sytnyk</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Nuevas fuentes de Google Fonts: Montserrat para encabezados, Inter para cuerpo -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Portfolio | Oleksandr Sytnyk</title>
+    
+    <!-- Fuentes: Montserrat (Encabezados) e Inter (Cuerpo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================
+           1. VARIABLES Y SISTEMA DE DISEÑO
+           ============================================================ */
+        :root {
+            --accent-color: #ff8c00;
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, #ff8c00 100%);
+            
+            /* Tiempos de Transición */
+            --theme-transition: 3s cubic-bezier(0.4, 0, 0.2, 1); /* Cambio de modo noche */
+            --hover-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Interacción ratón */
+
+            /* Modo Oscuro */
+            --dark-bg: #0a0a0a;
+            --dark-text: #f5f5f7;
+            --dark-text-muted: rgba(255, 255, 255, 0.5);
+            --dark-glass: rgba(26, 26, 26, 0.4);
+            --dark-dot: rgba(255, 255, 255, 0.1);
+
+            /* Modo Claro */
+            --light-bg: #f5f5f7;
+            --light-text: #1d1d1f;
+            --light-text-muted: rgba(0, 0, 0, 0.6);
+            --light-glass: rgba(255, 255, 255, 0.5);
+            --light-dot: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color var(--theme-transition), color var(--theme-transition);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        body.dark-mode { background-color: var(--dark-bg); color: var(--dark-text); }
+        body.light-mode { background-color: var(--light-bg); color: var(--light-text); }
+
+        /* Fondo de puntos Apple Style */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: radial-gradient(var(--dark-dot) 1px, transparent 1px);
+            background-size: 30px 30px;
+            transition: var(--theme-transition);
+        }
+        body.light-mode::before { background-image: radial-gradient(var(--light-dot) 1px, transparent 1px); }
+
+        /* GRADIENTE BLANCO-NARANJA EN TEXTOS */
+        h1, h2, h3, .logo, .project-card h3, strong, b, .gradient-text {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* ============================================================
+           2. HEADER "NUBE" (CLOUD GLASS)
+           ============================================================ */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 2rem;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 2rem;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            padding: 0.8rem 2.5rem;
+            border-radius: 100px;
+            border: none;
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            /* Efecto Nube suave en los bordes */
+            mask-image: radial-gradient(circle, black 92%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 92%, transparent 100%);
+            transition: background var(--theme-transition), box-shadow var(--theme-transition);
+        }
+
+        body.dark-mode header nav { background: var(--dark-glass); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        body.light-mode header nav { background: var(--light-glass); box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+
+        .logo {
+            font-size: 1.6rem;
+            margin-right: auto;
+            padding-left: 1rem; /* Espaciado a la izquierda */
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* ============================================================
+           3. BOTONES Y CARDS (RESPUESTA RÁPIDA)
+           ============================================================ */
+        .liquid-button {
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform var(--hover-transition), background var(--hover-transition), border var(--hover-transition), color var(--hover-transition) !important;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        body.dark-mode .liquid-button { background: rgba(255, 255, 255, 0.05); color: var(--dark-text); }
+        body.light-mode .liquid-button { background: rgba(0, 0, 0, 0.05); color: var(--light-text); }
+
+        .liquid-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: var(--accent-color);
+            background: rgba(255, 140, 0, 0.15);
+            -webkit-text-fill-color: var(--accent-color); /* Naranja sólido en hover */
+        }
+
+        .liquid-button.primary {
+            background: var(--accent-color) !important;
+            color: white !important;
+            -webkit-text-fill-color: white !important;
+        }
+
+        .project-card {
+            border-radius: 40px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--dark-border);
+            transition: transform var(--hover-transition), box-shadow var(--hover-transition), border var(--hover-transition) !important;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ============================================================
+           4. TRADUCTOR Y SWITCH (CORREGIDOS)
+           ============================================================ */
+        .gtranslate_wrapper {
+            margin-right: 20px;
+        }
+
+        /* Estilo del Switch */
+        .theme-switch { position: relative; width: 62px; height: 30px; }
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute; inset: 0; cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            border: 1px solid var(--dark-border);
+            overflow: hidden; /* Luna no sobresale */
+            transition: 0.5s;
+        }
+
+        .slider:before {
+            position: absolute; content: "";
+            height: 22px; width: 22px; left: 4px; bottom: 3px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        input:checked + .slider:before { transform: translateX(32px); }
+
+        .slider .icon { position: absolute; top: 6px; font-size: 12px; transition: 0.5s; }
+        .slider .sun { left: 10px; opacity: 0; }
+        .slider .moon { right: 10px; opacity: 1; }
+        input:checked + .slider .sun { opacity: 1; }
+        input:checked + .slider .moon { opacity: 0; }
+
+        /* ============================================================
+           5. SECCIONES DE CONTENIDO
+           ============================================================ */
+        main {
+            max-width: 1200px;
+            margin: 12rem auto 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--dark-text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        footer {
+            padding: 6rem;
+            text-align: center;
+            border-top: 1px solid var(--dark-border);
+            opacity: 0.5;
+            transition: var(--theme-transition);
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header nav { padding: 0.6rem 1.5rem; }
+            .nav-links { display: none; }
+            .logo { padding-left: 0; }
+            main { margin-top: 10rem; }
+        }
+    </style>
 </head>
 <body class="dark-mode">
+
     <header>
-        <div class="logo">muvi.ni</div>
         <nav>
+            <div class="logo">muvi.ni</div>
             <ul class="nav-links">
                 <li><a href="#about" class="liquid-button">Sobre Mí</a></li>
                 <li><a href="#projects" class="liquid-button">Proyectos</a></li>
+                <li><a href="cv.html" class="liquid-button">CV</a></li>
                 <li><a href="#contact" class="liquid-button">Contacto</a></li>
-                <!-- Aquí puedes añadir tu link de Etsy -->
-                <li><a href="https://somaproductiones.etsy.com" class="liquid-button" target="_blank">Mi Tienda Etsy</a></li>
+                <li><a href="https://somaproductiones.etsy.com" class="liquid-button primary" target="_blank">Etsy</a></li>
             </ul>
+
+            <!-- GTranslate: Sin cortes en la "M" y con scroll -->
+            <div class="gtranslate_wrapper"></div>
+
             <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" checked />
-                    <div class="slider round">
+                <label class="theme-switch">
+                    <input type="checkbox" id="checkbox" checked>
+                    <div class="slider">
                         <span class="icon sun">🔆</span>
                         <span class="icon moon">🌙</span>
                     </div>
@@ -32,90 +284,82 @@
     </header>
 
     <main>
+        <!-- HERO -->
         <section id="hero">
             <h1>Hola, soy Oleksandr Sytnyk</h1>
-            <p>Diseñador y Desarrollador con pasión por crear experiencias digitales.</p>
+            <p>Especialista en <b>Data & Analytics</b> | Desarrollador de Experiencias Digitales</p>
             <a href="#projects" class="liquid-button primary">Ver Proyectos</a>
         </section>
 
+        <!-- SOBRE MÍ -->
         <section id="about">
             <h2>Sobre Mí</h2>
-            <div class="about-content">
-                <p>
-                    Actualmente, soy estudiante de grado superior en CEAC FP, inmerso en el fascinante mundo de la tecnología. Con una base sólida en lenguajes como HTML, CSS, JavaScript y C#, me considero un desarrollador junior apasionado por crear mis propios proyectos. Mi enfoque principal está en el desarrollo online y las soluciones IT, siempre buscando innovar y aprender en este campo en constante evolución.
-                </p>
-                <p>
-                    Más allá del código, la creatividad fluye a través de mis dedos cuando me siento al piano o cojo la guitarra. La música es una parte esencial de mi vida, un espacio donde la lógica y la expresión se encuentran. Esta dualidad entre el rigor técnico y la libertad artística define mi manera de abordar cada desafío, tanto en la pantalla como en el escenario.
-                </p>
-                <p>
-                    Mi trayectoria personal se ha enriquecido con una amplia experiencia intercultural. Haber vivido en diversos países me ha dotado de una perspectiva global y una gran capacidad de adaptación, habilidades que aplico tanto en mi vida diaria como en la resolución creativa de problemas en mis proyectos. Soy Oleksandr Sytnyk: un desarrollador con alma de artista y un ciudadano del mundo, siempre listo para el próximo reto.
-                </p>
-            </div>
+            <p style="text-align: justify; margin-top: 2rem;">
+                Estudiante de Grado Superior en CEAC FP, apasionado por la intersección entre los datos y el desarrollo de software. Con dominio en HTML, CSS, JavaScript y C#, enfoco mi creatividad en soluciones IT innovadoras. Ciudadano del mundo con alma de artista, combinando el rigor del código con la sensibilidad del piano y la guitarra.
+            </p>
         </section>
 
+        <!-- PROYECTOS -->
         <section id="projects">
-            <h2>Proyectos</h2>
+            <h2>Proyectos Destacados</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>Proyecto 1</h3>
-                    <p>Breve descripción del Proyecto 1. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-1.html" class="liquid-button">Ver Proyecto</a>
+                    <h3>HPI Agent</h3>
+                    <p>Agente autónomo de IA diseñado para la emulación fidedigna de interacciones humanas a nivel periférico.</p>
                 </div>
                 <div class="project-card">
-                    <h3>Proyecto 2</h3>
-                    <p>Breve descripción del Proyecto 2. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-2.html" class="liquid-button">Ver Proyecto</a>
+                    <h3>SOMA Production</h3>
+                    <p>Marca de ropa conceptual con enfoque en diseño minimalista y gestión integral de e-commerce.</p>
                 </div>
                 <div class="project-card">
-                    <h3>Proyecto 3</h3>
-                    <p>Breve descripción del Proyecto 3. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-3.html" class="liquid-button">Ver Proyecto</a>
+                    <h3>Nexus Migration</h3>
+                    <p>Plataforma SaaS para la optimización de trámites legales y relocalización de inmigrantes.</p>
                 </div>
             </div>
         </section>
 
+        <!-- CONTACTO -->
         <section id="contact">
             <h2>Contacto</h2>
-            <p>¿Interesado en colaborar o simplemente saludar? ¡No dudes en contactarme!</p>
-            <div class="contact-buttons-group">
-                <a href="https://wa.me/+34624802974" class="liquid-button" target="_blank">WhatsApp</a>
-                
-                <!-- CLASE 'primary' ELIMINADA AQUÍ -->
-                <a href="mailto:alex.sytnyk729@gmail.com" class="liquid-button">Enviar un Email</a> 
-                
-                <a href="https://www.linkedin.com/in/muvini" class="liquid-button" target="_blank">LinkedIn</a>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="mailto:alex.sytnyk729@gmail.com" class="liquid-button">Email</a>
+                <a href="https://wa.me/+34624802974" class="liquid-button">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/muvini" class="liquid-button">LinkedIn</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Oleksandr Sytnyk. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Oleksandr Sytnyk. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Lógica de Tema -->
     <script>
         const checkbox = document.getElementById('checkbox');
         const body = document.body;
-
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-        if (currentTheme) {
-            body.className = currentTheme;
-            checkbox.checked = (currentTheme === 'dark-mode');
-        } else {
-            body.className = 'dark-mode'; // Default to dark mode
-            checkbox.checked = true;
-        }
-
+        
         checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                body.className = 'dark-mode';
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.className = 'light-mode';
-                localStorage.setItem('theme', 'light-mode');
-            }
+            const theme = checkbox.checked ? 'dark-mode' : 'light-mode';
+            body.className = theme;
+            localStorage.setItem('theme', theme);
         });
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.className = savedTheme;
+            checkbox.checked = (savedTheme === 'dark-mode');
+        }
     </script>
+
+    <!-- GTranslate: Solución al corte de idiomas y scroll -->
+    <script>window.gtranslateSettings = {"default_language":"es","languages":["es","en","ru","uk","fr","de","it"],"wrapper_selector":".gtranslate_wrapper","flag_size":20,"alt_flags":{"en":"usa"},"select_language_style":"fancy"}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/dwl.js" defer></script>
+
 </body>
 </html>
+
+
+
+
 
 
