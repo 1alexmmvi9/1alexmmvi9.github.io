@@ -1,142 +1,153 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geo-Social Ecosystem - Portfolio de Alex Sytnyk</title>
-    <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Proyecto 1 — Oleksandr Sytnyk Portfolio" />
+  <title>Proyecto 1 — Oleksandr Sytnyk</title>
+
+  <!--
+    IMPORTANTE: La ruta al CSS sube un nivel (../)
+    porque este archivo está en /projects/
+    Todos los proyectos usan el mismo global.css — sin colisiones
+  -->
+  <link rel="stylesheet" href="../global.css" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
-<body class="dark-mode">
-    <header>
-        <div class="logo">muvi.ni</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="../index.html#about" class="liquid-button">Sobre Mí</a></li>
-                <li><a href="../index.html#projects" class="liquid-button">Proyectos</a></li>
-                <li><a href="../index.html#contact" class="liquid-button">Contacto</a></li>
-                <li><a href="https://somaproductiones.etsy.com" class="liquid-button" target="_blank">Mi Tienda Etsy</a></li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" checked />
-                    <div class="slider round">
-                        <span class="icon sun">🔆</span>
-                        <span class="icon moon">🌙</span>
-                    </div>
-                </label>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main>
-        <section id="project-detail" class="project-detail-section">
-            <h1 class="project-title">Geo-Social Engine: Gamified Ecosystem</h1>
-            <p class="project-intro">Una plataforma disruptiva de interacción social basada en geolocalización dinámica, diseñada para conectar usuarios mediante eventos en tiempo real y un sistema de incentivos B2B.</p>
+<!-- ══════════════════════════════════════════
+     NAVBAR (rutas con ../ para subir un nivel)
+══════════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="../index.html" class="navbar__logo" aria-label="Inicio">OS✦</a>
 
-            <div class="project-hero-image">
-                <img src="../assets/images/project-images/p2-hero.jpg" alt="Interfaz de la App Geo-Social" />
-            </div>
+  <button class="navbar__hamburger" aria-label="Abrir menú" aria-expanded="false" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
 
-            <div class="project-content">
-                <div class="project-description">
-                    <h3>Arquitectura Estratégica y Planificación</h3>
-                    <p>
-                        Este proyecto nace de la necesidad de mitigar la fricción en la organización de eventos sociales urbanos. La base del desarrollo se sustenta en un <strong>Business Plan</strong> riguroso que identifica nichos de mercado específicos, desde el turismo local hasta comunidades de networking, optimizando la retención mediante una estrategia de monetización híbrida que incluye funciones premium y comisiones por conversión en establecimientos asociados.
-                    </p>
-                    <p>
-                        La ingeniería del proyecto incluye una <strong>especificación funcional</strong> detallada, donde cada interacción del usuario está mapeada para garantizar una navegación fluida y una arquitectura de información coherente, permitiendo que la escalabilidad del producto sea orgánica y sostenible.
-                    </p>
-                </div>
+  <div class="navbar__links" id="nav-links">
+    <a href="../index.html"            class="navbar__link">Inicio</a>
+    <a href="../index.html#about"      class="navbar__link">Sobre mí</a>
+    <a href="../index.html#projects"   class="navbar__link navbar__link--active">Proyectos</a>
+    <a href="../cv.html"               class="navbar__link">CV</a>
+    <a href="../index.html#contact"    class="navbar__link">Contacto</a>
 
-                <div class="section-hero-text-overlay" style="background-image: url('../assets/images/project-images/tech-bg.jpg');">
-                    <h3>INGENIERÍA CROSS-PLATFORM Y ESCALABILIDAD</h3>
-                </div>
+    <a href="https://www.etsy.com/es/shop/TU_TIENDA" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/>
+      </svg>
+      Etsy
+    </a>
 
-                <div class="project-description">
-                    <p>
-                        Para la implementación técnica, se ha seleccionado un <strong>Stack Tecnológico</strong> de alto rendimiento. En el frontend, la utilización de frameworks como <strong>Flutter o React Native</strong> permite un despliegue ágil y unificado para iOS y Android, garantizando una UI/UX consistente con estándares de diseño modernos y una lógica de estados compleja para el manejo de mapas interactivos.
-                    </p>
-                    <p>
-                        El backend, orquestado en <strong>Node.js</strong>, gestiona una arquitectura de microservicios encargada de la autenticación segura, la gestión de geocercas (geofencing) y el procesamiento de datos en tiempo real para las notificaciones push mediante Firebase Cloud Messaging.
-                    </p>
-                </div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo claro/oscuro"></button>
+  </div>
+</nav>
 
-                <div class="content-with-image">
-                    <div class="text-block">
-                        <h3>Infraestructura Cloud y Datos</h3>
-                        <p>
-                            La robustez del ecosistema se apoya en proveedores de servicios en la nube como <strong>AWS o Google Cloud</strong>, implementando bases de datos relacionales (PostgreSQL) para la integridad de los perfiles y sistemas NoSQL (MongoDB) para la flexibilidad de los logs de eventos. La escalabilidad horizontal está garantizada mediante balanceadores de carga y sistemas de caché como Redis para minimizar la latencia en las consultas de geolocalización.
-                        </p>
-                        <p>
-                            Se ha puesto especial énfasis en el cumplimiento normativo (GDPR), asegurando que el tratamiento de datos de ubicación y perfiles de usuario cumpla con los más estrictos protocolos de privacidad y seguridad criptográfica.
-                        </p>
-                    </div>
-                    <div class="image-block">
-                        <img src="../assets/images/project-images/p2-infra.jpg" alt="Infraestructura y Servidores" />
-                    </div>
-                </div>
+<!-- ══════════════════════════════════════════
+     CONTENIDO DEL PROYECTO
+══════════════════════════════════════════ -->
+<div class="page-wrapper">
+  <article class="project-page">
+    <div class="container">
 
-                <div class="content-with-image reverse">
-                    <div class="text-block">
-                        <h3>Sinergia B2B y Gamificación</h3>
-                        <p>
-                            El valor diferencial del proyecto reside en su <strong>modelo de gamificación</strong>. Los usuarios progresan a través de niveles de experiencia al participar y organizar eventos, lo que desbloquea beneficios tangibles en negocios locales. Esta sinergia B2B transforma la aplicación en una herramienta de marketing directo para establecimientos, quienes obtienen visibilidad segmentada y clientes cualificados.
-                        </p>
-                        <p>
-                            La verificación de recompensas mediante códigos QR y sistemas de validación en tiempo real cierra el ciclo de conversión, convirtiendo la interacción digital en una experiencia física monetizable y de alto valor para el tejido comercial local.
-                        </p>
-                    </div>
-                    <div class="image-block">
-                        <img src="../assets/images/project-images/p2-business.jpg" alt="Modelo de Negocio y Partners" />
-                    </div>
-                </div>
+      <!-- Cabecera del proyecto -->
+      <header class="project-page__header animate-up">
+        <a href="../index.html#projects" class="project-page__back">
+          ← Volver a proyectos
+        </a>
 
-                <div class="project-gallery">
-                    <h3>Galería de Desarrollo</h3>
-                    <div class="gallery-grid">
-                        <img src="../assets/images/project-images/p2-gallery-1.jpg" alt="Wireframes de la App" />
-                        <img src="../assets/images/project-images/p2-gallery-2.jpg" alt="Mapa de Calor de Usuarios" />
-                        <img src="../assets/images/project-images/p2-gallery-3.jpg" alt="Panel de Administración B2B" />
-                    </div>
-                </div>
+        <span class="section-label">Data Analytics · Python</span>
+        <h1>Nombre del Proyecto 1</h1>
 
-                <div class="project-links">
-                    <h3>Recursos del Proyecto</h3>
-                    <a href="#" class="liquid-button" target="_blank">Ver Prototipo Interactivo</a>
-                    <a href="#" class="liquid-button" target="_blank">Documentación API</a>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div class="project-page__meta">
+          <span class="cv-tag">Python</span>
+          <span class="cv-tag">Pandas</span>
+          <span class="cv-tag">Matplotlib</span>
+          <span class="cv-tag">2024</span>
+        </div>
+      </header>
 
-    <footer>
-        <p>&copy; 2026 Alex Sytnyk. Todos los derechos reservados.</p>
-    </footer>
+      <!-- Contenido -->
+      <div class="project-page__content animate-up animate-up--d1">
+        <p>
+          Descripción detallada del proyecto. Explica el contexto, el problema que
+          intentas resolver y por qué es relevante. Sé específico: ¿qué datos usaste?,
+          ¿cuál era el objetivo de negocio o aprendizaje?
+        </p>
+        <p>
+          Metodología y proceso: cómo abordaste el problema, qué pasos seguiste,
+          qué herramientas utilizaste y por qué las elegiste frente a otras alternativas.
+        </p>
+        <p>
+          Resultados y conclusiones: qué aprendiste, qué métricas mejoraron,
+          qué harías diferente la próxima vez.
+        </p>
 
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const body = document.body;
+        <!-- Puedes añadir imágenes, gráficos, código, etc. -->
+        <div style="margin: var(--space-xl) 0;">
+          <div class="glass-card" style="padding: var(--space-lg); min-height: 200px; display:flex; align-items:center; justify-content:center;">
+            <p style="text-align:center; color:var(--text-muted); font-family:var(--font-mono); font-size:0.78rem;">
+              [ Aquí puedes insertar una imagen, gráfico o demo del proyecto ]
+            </p>
+          </div>
+        </div>
 
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-        if (currentTheme) {
-            body.className = currentTheme;
-            checkbox.checked = (currentTheme === 'dark-mode');
-        } else {
-            body.className = 'dark-mode';
-            checkbox.checked = true;
-        }
+        <div style="margin-top: var(--space-xl); display:flex; gap:var(--space-md); flex-wrap:wrap;">
+          <a href="https://github.com/TU_USUARIO/TU_REPO" target="_blank" rel="noopener" class="btn btn-primary">
+            Ver en GitHub
+          </a>
+          <a href="../index.html#projects" class="btn btn-ghost">
+            ← Más proyectos
+          </a>
+        </div>
+      </div>
 
-        checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                body.className = 'dark-mode';
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.className = 'light-mode';
-                localStorage.setItem('theme', 'light-mode');
-            }
-        });
-    </script>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="footer__text">
+      © 2025 <span>Oleksandr Sytnyk</span> ✦
+    </p>
+  </div>
+</footer>
+
+<script>
+  const html        = document.documentElement;
+  const themeBtn    = document.getElementById('theme-toggle');
+  const STORAGE_KEY = 'os-theme';
+
+  const savedTheme   = localStorage.getItem(STORAGE_KEY);
+  const systemDark   = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
+  html.setAttribute('data-theme', initialTheme);
+
+  themeBtn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem(STORAGE_KEY, next);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
 </body>
 </html>
-

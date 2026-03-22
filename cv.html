@@ -1,178 +1,390 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Alex Sytnyk</title>
-    
-    <!-- Fuentes: Montserrat (Encabezados) e Inter (Cuerpo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Nota: El CSS lo haremos en el siguiente paso, por ahora usamos la estructura para el estilo Liquid Glass -->
-    <link rel="stylesheet" href="cv.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV de Oleksandr Sytnyk — Desarrollador Junior & Data Analytics." />
+  <title>CV — Oleksandr Sytnyk</title>
+
+  <!-- Design System único -->
+  <link rel="stylesheet" href="global.css" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
-<body class="dark-mode">
+<body>
 
-    <header>
-        <nav>
-            <div class="logo">muvi.ni</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="liquid-button">Inicio</a></li>
-                <li><a href="index.html#projects" class="liquid-button">Proyectos</a></li>
-                <li><a href="cv.html" class="liquid-button active">CV</a></li>
-                <li><a href="https://somaproductiones.etsy.com" class="liquid-button primary" target="_blank">Etsy</a></li>
-            </ul>
+<!-- ══════════════════════════════════════════
+     NAVBAR FLOTANTE (idéntica a index)
+══════════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="navbar__logo" aria-label="Inicio">OS✦</a>
 
-            <div class="gtranslate_wrapper"></div>
+  <button class="navbar__hamburger" aria-label="Abrir menú" aria-expanded="false" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
 
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch">
-                    <input type="checkbox" id="checkbox" checked>
-                    <div class="slider">
-                        <span class="icon sun">🔆</span>
-                        <span class="icon moon">🌙</span>
-                    </div>
-                </label>
-            </div>
-        </nav>
-    </header>
+  <div class="navbar__links" id="nav-links">
+    <a href="index.html"    class="navbar__link">Inicio</a>
+    <a href="index.html#about"    class="navbar__link">Sobre mí</a>
+    <a href="index.html#projects" class="navbar__link">Proyectos</a>
+    <a href="cv.html"       class="navbar__link navbar__link--active">CV</a>
+    <a href="index.html#contact"  class="navbar__link">Contacto</a>
 
-    <main class="cv-main">
-        <!-- CABECERA DEL CV -->
-        <section id="cv-hero">
-            <h1 class="gradient-text">Alex Sytnyk</h1>
-            <p class="cv-subtitle">Desarrollador Web | Especialista en Data & Analytics</p>
-            
-            <div class="cv-contact-bar">
-                <span>📍 San Antonio, Valencia</span>
-                <span>📞 +34 624 802 974</span>
-                <span>✉️ alex.sytnyk729@gmail.com</span>
-            </div>
-        </section>
+    <a href="https://www.etsy.com/es/shop/TU_TIENDA" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/>
+      </svg>
+      Etsy
+    </a>
 
-        <!-- PERFIL -->
-        <section class="cv-section">
-            <h2 class="gradient-text">Perfil Profesional</h2>
-            <p>
-                Persona enérgica, metódica y confiable con una sólida base técnica y creativa. Actualmente enfocado en el desarrollo de software y análisis de datos, combinando el rigor lógico del <b>Bachillerato Científico-Tecnológico</b> con la innovación del desarrollo web. Capacidad demostrada para la resolución de problemas complejos y la creación de soluciones digitales eficientes.
-            </p>
-        </section>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo claro/oscuro"></button>
+  </div>
+</nav>
 
-        <!-- FORMACIÓN (Prioridad DAW) -->
-        <section class="cv-section">
-            <h2 class="gradient-text">Educación</h2>
-            
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Grado Superior en Desarrollo de Aplicaciones Web (DAW)</h3>
-                    <span class="cv-date">En curso</span>
-                </div>
-                <p><b>CEAC FP</b> - Especialización en tecnologías Full-Stack, gestión de bases de datos y arquitectura de software.</p>
-            </div>
+<!-- ══════════════════════════════════════════
+     LAYOUT CV
+══════════════════════════════════════════ -->
+<div class="page-wrapper">
+<div class="cv-layout">
 
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Bachillerato Científico-Tecnológico</h3>
-                    <span class="cv-date">Completado</span>
-                </div>
-                <p>Formación avanzada en matemáticas, física y fundamentos tecnológicos, proporcionando una base analítica crítica para la programación.</p>
-            </div>
+  <!-- ── SIDEBAR ── -->
+  <aside class="cv-sidebar" aria-label="Información personal">
 
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Licenciatura en Arquitectura</h3>
-                    <span class="cv-date">Graduado con honores</span>
-                </div>
-                <p><b>CEAC FP</b> - Desarrollo de habilidades en diseño estructural, visualización técnica y gestión de proyectos complejos.</p>
-            </div>
-        </section>
+    <div class="cv-avatar" aria-hidden="true">OS</div>
+    <p class="cv-sidebar__name">Oleksandr Sytnyk</p>
+    <p class="cv-sidebar__role">Dev Junior · Data Analytics</p>
 
-        <!-- HABILIDADES TÉCNICAS -->
-        <section class="cv-section">
-            <h2 class="gradient-text">Habilidades Tecnológicas</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Desarrollo</h4>
-                    <ul>
-                        <li>HTML5 / CSS3 / JavaScript (ES6+)</li>
-                        <li>C# / .NET</li>
-                        <li>Responsive Design & UI/UX</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Data & Herramientas</h4>
-                    <ul>
-                        <li>Data Analysis & Visualization</li>
-                        <li>Software CAD (Diseño técnico)</li>
-                        <li>Git / GitHub / VS Code</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Contacto -->
+    <div class="cv-sidebar__section">
+      <p class="cv-sidebar__section-title">Contacto</p>
 
-        <!-- EXPERIENCIA LABORAL -->
-        <section class="cv-section">
-            <h2 class="gradient-text">Experiencia Laboral</h2>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:tu@email.com" style="color:inherit;">tu@email.com</a>
+      </div>
 
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Apoyo Técnico y Visualización</h3>
-                    <span class="cv-date">Dic 2025 - Presente</span>
-                </div>
-                <p><b>Aeropuerto, Valencia (ESATUR)</b> - Preparación de presentaciones visuales de alta precisión y comunicación de conceptos técnicos complejos.</p>
-            </div>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        <a href="https://github.com/TU_USUARIO" target="_blank" rel="noopener" style="color:inherit;">github.com/TU_USUARIO</a>
+      </div>
 
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Asistente de Gestión de Proyectos</h3>
-                    <span class="cv-date">Sep 2024 - Dic 2025</span>
-                </div>
-                <p><b>Grupo Empresarial Ferreti</b> - Colaboración en el desarrollo de conceptos y selección técnica de materiales para proyectos de diseño.</p>
-            </div>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" rel="noopener" style="color:inherit;">LinkedIn</a>
+      </div>
 
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>Barman y Soporte Técnico CAD</h3>
-                    <span class="cv-date">Ene 2023 - Ago 2024</span>
-                </div>
-                <p><b>Apotheke BAR</b> - Compaginación de atención al cliente con la creación de bocetos y planos preliminares mediante software asistido por computadora (CAD).</p>
-            </div>
-        </section>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Valencia, España
+      </div>
+    </div>
 
-        <!-- IDIOMAS -->
-        <section class="cv-section">
-            <h2 class="gradient-text">Idiomas</h2>
-            <div class="languages-grid">
-                <div class="lang-item"><b>Ruso:</b> Nativo</div>
-                <div class="lang-item"><b>Ucraniano:</b> Nativo</div>
-                <div class="lang-item"><b>Castellano:</b> Nativo</div>
-                <div class="lang-item"><b>Inglés:</b> C1 (Avanzado)</div>
-                <div class="lang-item"><b>Italiano:</b> A1</div>
-                <div class="lang-item"><b>Armenio:</b> A1</div>
-            </div>
-        </section>
-    </main>
+    <!-- Idiomas -->
+    <div class="cv-sidebar__section">
+      <p class="cv-sidebar__section-title">Idiomas</p>
 
-    <footer>
-        <p>&copy; 2026 Alex Sytnyk. Todos los derechos reservados.</p>
-    </footer>
+      <div style="margin-bottom:var(--space-sm)">
+        <div class="cv-skill-bar__label"><span>Ucraniano</span><span>Nativo</span></div>
+        <div class="cv-lang-dot">
+          <span class="active"></span><span class="active"></span>
+          <span class="active"></span><span class="active"></span><span class="active"></span>
+        </div>
+      </div>
 
-    <!-- Lógica de Tema (Mismo que el index) -->
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const body = document.body;
-        
-        checkbox.addEventListener('change', () => {
-            const theme = checkbox.checked ? 'dark-mode' : 'light-mode';
-            body.className = theme;
-            localStorage.setItem('theme', theme);
-        });
+      <div style="margin-bottom:var(--space-sm)">
+        <div class="cv-skill-bar__label"><span>Español</span><span>Avanzado</span></div>
+        <div class="cv-lang-dot">
+          <span class="active"></span><span class="active"></span>
+          <span class="active"></span><span class="active"></span><span></span>
+        </div>
+      </div>
 
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.className = savedTheme;
-            checkbox.checked = (savedTheme === 'dark-mode');
-        }
-    </script>
+      <div style="margin-bottom:var(--space-sm)">
+        <div class="cv-skill-bar__label"><span>Inglés</span><span>Intermedio</span></div>
+        <div class="cv-lang-dot">
+          <span class="active"></span><span class="active"></span>
+          <span class="active"></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div>
+        <div class="cv-skill-bar__label"><span>Ruso</span><span>Nativo</span></div>
+        <div class="cv-lang-dot">
+          <span class="active"></span><span class="active"></span>
+          <span class="active"></span><span class="active"></span><span class="active"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills técnicas (barras) -->
+    <div class="cv-sidebar__section">
+      <p class="cv-sidebar__section-title">Habilidades</p>
+
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>HTML / CSS</span><span>90%</span></div>
+        <div class="cv-skill-bar__track">
+          <div class="cv-skill-bar__fill" style="width:90%"></div>
+        </div>
+      </div>
+
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>JavaScript</span><span>75%</span></div>
+        <div class="cv-skill-bar__track">
+          <div class="cv-skill-bar__fill" style="width:75%"></div>
+        </div>
+      </div>
+
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>C#</span><span>65%</span></div>
+        <div class="cv-skill-bar__track">
+          <div class="cv-skill-bar__fill" style="width:65%"></div>
+        </div>
+      </div>
+
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>SQL / Data</span><span>70%</span></div>
+        <div class="cv-skill-bar__track">
+          <div class="cv-skill-bar__fill" style="width:70%"></div>
+        </div>
+      </div>
+
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>Python</span><span>55%</span></div>
+        <div class="cv-skill-bar__track">
+          <div class="cv-skill-bar__fill" style="width:55%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intereses -->
+    <div class="cv-sidebar__section">
+      <p class="cv-sidebar__section-title">Intereses</p>
+      <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="skill-chip">🎹 Piano</div>
+        <div class="skill-chip">🎸 Guitarra</div>
+        <div class="skill-chip">📊 Data</div>
+        <div class="skill-chip">🌍 Viajes</div>
+      </div>
+    </div>
+
+    <!-- Botón descarga -->
+    <a href="#" class="cv-download-btn" aria-label="Descargar CV en PDF">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Descargar PDF
+    </a>
+
+  </aside><!-- /cv-sidebar -->
+
+  <!-- ── CONTENIDO PRINCIPAL ── -->
+  <main class="cv-main" aria-label="Contenido del currículum">
+
+    <!-- Perfil -->
+    <section class="cv-section animate-up">
+      <h2 class="cv-section__title">Perfil</h2>
+      <p>
+        Desarrollador junior y estudiante de Grado Superior en CEAC FP, especializado en
+        tecnologías web y análisis de datos. Combinando un perfil técnico con una visión
+        creativa forjada en la música y la experiencia multicultural, aporto una perspectiva
+        única a cada proyecto. Siempre en busca de nuevos retos que me permitan crecer
+        profesional y personalmente.
+      </p>
+    </section>
+
+    <!-- Formación -->
+    <section class="cv-section animate-up animate-up--d1">
+      <h2 class="cv-section__title">Formación</h2>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">CEAC FP</p>
+          <p class="cv-entry__role">Grado Superior — Desarrollo de Aplicaciones Web / IT</p>
+        </div>
+        <p class="cv-entry__date">2023 — Presente</p>
+        <p class="cv-entry__desc">
+          Formación en desarrollo web full-stack, bases de datos, redes y soluciones IT.
+          Enfoque práctico en proyectos reales con tecnologías actuales del mercado.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">HTML/CSS</span>
+          <span class="cv-tag">JavaScript</span>
+          <span class="cv-tag">C#</span>
+          <span class="cv-tag">SQL</span>
+          <span class="cv-tag">Redes</span>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Formación autodidacta</p>
+          <p class="cv-entry__role">Data Analytics & Visualización de Datos</p>
+        </div>
+        <p class="cv-entry__date">2022 — Presente</p>
+        <p class="cv-entry__desc">
+          Aprendizaje continuo en Python para análisis de datos, Power BI, Excel avanzado
+          y estadística aplicada a través de plataformas como Coursera, Kaggle y proyectos propios.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Python</span>
+          <span class="cv-tag">Power BI</span>
+          <span class="cv-tag">Pandas</span>
+          <span class="cv-tag">Excel</span>
+          <span class="cv-tag">Estadística</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section class="cv-section animate-up animate-up--d2">
+      <h2 class="cv-section__title">Experiencia</h2>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Proyectos personales</p>
+          <p class="cv-entry__role">Desarrollador Full-Stack / Freelance</p>
+        </div>
+        <p class="cv-entry__date">2022 — Presente</p>
+        <p class="cv-entry__desc">
+          Desarrollo de aplicaciones web propias, herramientas de análisis de datos y
+          proyectos creativos. Gestión integral del ciclo de vida del software: diseño,
+          desarrollo, despliegue y mantenimiento en GitHub Pages.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">HTML/CSS</span>
+          <span class="cv-tag">JavaScript</span>
+          <span class="cv-tag">GitHub Pages</span>
+          <span class="cv-tag">Git</span>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Tienda Etsy</p>
+          <p class="cv-entry__role">Creador de Productos Digitales</p>
+        </div>
+        <p class="cv-entry__date">2023 — Presente</p>
+        <p class="cv-entry__desc">
+          Creación y venta de productos digitales en Etsy. Gestión de la tienda online,
+          atención al cliente internacional y marketing de contenidos.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">E-commerce</span>
+          <span class="cv-tag">Marketing digital</span>
+          <span class="cv-tag">Diseño gráfico</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos destacados -->
+    <section class="cv-section animate-up animate-up--d3">
+      <h2 class="cv-section__title">Proyectos destacados</h2>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Portfolio Personal</p>
+          <p class="cv-entry__role">Proyecto 1 — [Nombre del proyecto]</p>
+        </div>
+        <p class="cv-entry__date">2024</p>
+        <p class="cv-entry__desc">
+          Descripción del proyecto. Qué problema resuelve, metodología aplicada
+          y resultados obtenidos. Enlaza con la página de detalle.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Python</span>
+          <span class="cv-tag">Data Analytics</span>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Portfolio Personal</p>
+          <p class="cv-entry__role">Proyecto 2 — [Nombre del proyecto]</p>
+        </div>
+        <p class="cv-entry__date">2024</p>
+        <p class="cv-entry__desc">
+          Descripción del proyecto. Qué problema resuelve, metodología aplicada
+          y resultados obtenidos.
+        </p>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">JavaScript</span>
+          <span class="cv-tag">API REST</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Otras habilidades -->
+    <section class="cv-section animate-up animate-up--d4">
+      <h2 class="cv-section__title">Otras habilidades</h2>
+      <div class="skills-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));">
+        <div class="skill-chip">Piano · Guitarra</div>
+        <div class="skill-chip">Pensamiento creativo</div>
+        <div class="skill-chip">Adaptabilidad</div>
+        <div class="skill-chip">Trabajo en equipo</div>
+        <div class="skill-chip">Comunicación</div>
+        <div class="skill-chip">Experiencia multicultural</div>
+      </div>
+    </section>
+
+  </main><!-- /cv-main -->
+
+</div><!-- /cv-layout -->
+</div><!-- /page-wrapper -->
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p class="footer__text">
+      © 2025 <span>Oleksandr Sytnyk</span> · Currículum generado con amor y CSS ✦
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+  /* ── Theme toggle ── */
+  const html        = document.documentElement;
+  const themeBtn    = document.getElementById('theme-toggle');
+  const STORAGE_KEY = 'os-theme';
+
+  const savedTheme  = localStorage.getItem(STORAGE_KEY);
+  const systemDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
+  html.setAttribute('data-theme', initialTheme);
+
+  themeBtn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem(STORAGE_KEY, next);
+  });
+
+  /* ── Hamburguesa ── */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -1,121 +1,274 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Oleksandr Sytnyk</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Nuevas fuentes de Google Fonts: Montserrat para encabezados, Inter para cuerpo -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oleksandr Sytnyk — Desarrollador Junior & Especialista en Data Analytics. Portfolio personal." />
+  <title>Oleksandr Sytnyk — Portfolio</title>
+
+  <!-- Design System único -->
+  <link rel="stylesheet" href="global.css" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
-<body class="dark-mode">
-    <header>
-        <div class="logo">muvi.ni</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about" class="liquid-button">Sobre Mí</a></li>
-                <li><a href="#projects" class="liquid-button">Proyectos</a></li>
-                <li><a href="#contact" class="liquid-button">Contacto</a></li>
-                <li><a href="cv.html" class="liquid-button">CV</a></li>
-                <!-- Aquí puedes añadir tu link de Etsy -->
-                <li><a href="https://somaproductiones.etsy.com" class="liquid-button" target="_blank">Mi Tienda Etsy</a></li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" checked />
-                    <div class="slider round">
-                        <span class="icon sun">🔆</span>
-                        <span class="icon moon">🌙</span>
-                    </div>
-                </label>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main>
-        <section id="hero">
-            <h1>Hola, soy Oleksandr Sytnyk</h1>
-            <p>Diseñador y Desarrollador con pasión por crear experiencias digitales.</p>
-            <a href="#projects" class="liquid-button primary">Ver Proyectos</a>
-        </section>
+<!-- ══════════════════════════════════════════
+     NAVBAR FLOTANTE
+══════════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="navbar__logo" aria-label="Inicio">OS✦</a>
 
-        <section id="about">
-            <h2>Sobre Mí</h2>
-            <div class="about-content">
-                <p>
-                    Actualmente, soy estudiante de grado superior en CEAC FP, inmerso en el fascinante mundo de la tecnología. Con una base sólida en lenguajes como HTML, CSS, JavaScript y C#, me considero un desarrollador junior apasionado por crear mis propios proyectos. Mi enfoque principal está en el desarrollo online y las soluciones IT, siempre buscando innovar y aprender en este campo en constante evolución.
-                </p>
-                <p>
-                    Más allá del código, la creatividad fluye a través de mis dedos cuando me siento al piano o cojo la guitarra. La música es una parte esencial de mi vida, un espacio donde la lógica y la expresión se encuentran. Esta dualidad entre el rigor técnico y la libertad artística define mi manera de abordar cada desafío, tanto en la pantalla como en el escenario.
-                </p>
-                <p>
-                    Mi trayectoria personal se ha enriquecido con una amplia experiencia intercultural. Haber vivido en diversos países me ha dotado de una perspectiva global y una gran capacidad de adaptación, habilidades que aplico tanto en mi vida diaria como en la resolución creativa de problemas en mis proyectos. Soy Oleksandr Sytnyk: un desarrollador con alma de artista y un ciudadano del mundo, siempre listo para el próximo reto.
-                </p>
-            </div>
-        </section>
+  <button class="navbar__hamburger" aria-label="Abrir menú" aria-expanded="false" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
 
-        <section id="projects">
-            <h2>Proyectos</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Proyecto 1</h3>
-                    <p>Breve descripción del Proyecto 1. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-1.html" class="liquid-button">Ver Proyecto</a>
-                </div>
-                <div class="project-card">
-                    <h3>Proyecto 2</h3>
-                    <p>Breve descripción del Proyecto 2. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-2.html" class="liquid-button">Ver Proyecto</a>
-                </div>
-                <div class="project-card">
-                    <h3>Proyecto 3</h3>
-                    <p>Breve descripción del Proyecto 3. Tecnologías usadas y rol.</p>
-                    <a href="projects/proyecto-3.html" class="liquid-button">Ver Proyecto</a>
-                </div>
-            </div>
-        </section>
+  <div class="navbar__links" id="nav-links">
+    <a href="index.html"    class="navbar__link navbar__link--active">Inicio</a>
+    <a href="#about"        class="navbar__link">Sobre mí</a>
+    <a href="#projects"     class="navbar__link">Proyectos</a>
+    <a href="cv.html"       class="navbar__link">CV</a>
+    <a href="#contact"      class="navbar__link">Contacto</a>
 
-        <section id="contact">
-            <h2>Contacto</h2>
-            <p>¿Interesado en colaborar o simplemente saludar? ¡No dudes en contactarme!</p>
-            <div class="contact-buttons-group">
-                <a href="https://wa.me/+34624802974" class="liquid-button" target="_blank">WhatsApp</a>
-                
-                <!-- CLASE 'primary' ELIMINADA AQUÍ -->
-                <a href="mailto:alex.sytnyk729@gmail.com" class="liquid-button">Enviar un Email</a> 
-                
-                <a href="https://www.linkedin.com/in/muvini" class="liquid-button" target="_blank">LinkedIn</a>
-            </div>
-        </section>
-    </main>
+    <!-- Botón Etsy — añade tu URL aquí -->
+    <a href="https://www.etsy.com/es/shop/TU_TIENDA" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/>
+      </svg>
+      Etsy
+    </a>
 
-    <footer>
-        <p>&copy; 2025 Oleksandr Sytnyk. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Toggle de tema -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo claro/oscuro"></button>
+  </div>
+</nav>
 
-    <script>
-        const checkbox = document.getElementById('checkbox');
-        const body = document.body;
+<!-- ══════════════════════════════════════════
+     CONTENIDO DE PÁGINA
+══════════════════════════════════════════ -->
+<div class="page-wrapper">
 
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-        if (currentTheme) {
-            body.className = currentTheme;
-            checkbox.checked = (currentTheme === 'dark-mode');
-        } else {
-            body.className = 'dark-mode'; // Default to dark mode
-            checkbox.checked = true;
-        }
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero__orb" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero__content">
 
-        checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                body.className = 'dark-mode';
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.className = 'light-mode';
-                localStorage.setItem('theme', 'light-mode');
-            }
-        });
-    </script>
+        <p class="hero__eyebrow animate-up">
+          Desarrollador Junior &amp; Data Analytics
+        </p>
+
+        <h1 class="hero__title animate-up animate-up--d1">
+          Oleksandr<br/>
+          <span class="text-accent">Sytnyk</span>
+        </h1>
+
+        <p class="hero__subtitle animate-up animate-up--d2">
+          Estudiante de Grado Superior en CEAC FP con base sólida en
+          <strong>HTML, CSS, JavaScript y C#</strong>. Apasionado por el desarrollo
+          online, las soluciones IT y el análisis de datos. Ciudadano del mundo con
+          perspectiva global y alma de artista.
+        </p>
+
+        <div class="hero__actions animate-up animate-up--d3">
+          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+          <a href="cv.html"   class="btn btn-ghost">Currículum →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOBRE MÍ ── -->
+  <section id="about">
+    <div class="container">
+      <span class="section-label">01 — Sobre mí</span>
+
+      <div class="about-grid">
+        <!-- Texto biográfico -->
+        <div class="about__text animate-up">
+          <div class="about__badge">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
+              <circle cx="5" cy="5" r="5"/>
+            </svg>
+            Actualmente disponible
+          </div>
+
+          <h2>Código, datos y <span class="text-accent">creatividad</span></h2>
+
+          <p style="margin-top:1.2rem;">
+            Actualmente estoy inmerso en el fascinante mundo de la tecnología como estudiante de Grado Superior en CEAC FP.
+            Con una base sólida en <strong>HTML, CSS, JavaScript y C#</strong>, me considero un desarrollador junior
+            apasionado por crear mis propios proyectos, siempre enfocado en el desarrollo online y las soluciones IT.
+          </p>
+          <p>
+            Más allá del código, la creatividad fluye a través de mis dedos cuando me siento al piano o cojo la guitarra.
+            La música es una parte esencial de mi vida: un espacio donde la lógica y la expresión se encuentran.
+            Esta dualidad entre el rigor técnico y la libertad artística define mi manera de abordar cada desafío.
+          </p>
+          <p>
+            Mi trayectoria personal se ha enriquecido con una amplia experiencia intercultural. Haber vivido en
+            diversos países me ha dotado de una perspectiva global y una gran capacidad de adaptación, habilidades
+            que aplico en la resolución creativa de problemas. Soy un desarrollador con alma de artista y un
+            ciudadano del mundo, siempre listo para el próximo reto.
+          </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="animate-up animate-up--d2">
+          <span class="section-label">Stack tecnológico</span>
+          <div class="skills-grid">
+            <div class="skill-chip">HTML5</div>
+            <div class="skill-chip">CSS3</div>
+            <div class="skill-chip">JavaScript</div>
+            <div class="skill-chip">C#</div>
+            <div class="skill-chip">Python</div>
+            <div class="skill-chip">SQL</div>
+            <div class="skill-chip">Git</div>
+            <div class="skill-chip">Data Analytics</div>
+            <div class="skill-chip">Power BI</div>
+            <div class="skill-chip">Excel</div>
+            <div class="skill-chip">React</div>
+            <div class="skill-chip">Node.js</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROYECTOS ── -->
+  <section id="projects">
+    <div class="container">
+      <span class="section-label">02 — Proyectos</span>
+      <h2 style="margin-bottom:var(--space-xl)">
+        Trabajo <span class="text-accent">seleccionado</span>
+      </h2>
+
+      <div class="projects-grid">
+
+        <!-- Proyecto 1 -->
+        <article class="glass-card project-card animate-up">
+          <p class="project-card__tag">Data Analytics · Python</p>
+          <h3 class="project-card__title">Proyecto 1</h3>
+          <p class="project-card__desc">
+            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
+            y cuál fue el impacto o aprendizaje principal.
+          </p>
+          <a href="projects/proyecto-1.html" class="project-card__link">
+            Ver proyecto →
+          </a>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="glass-card project-card animate-up animate-up--d1">
+          <p class="project-card__tag">Web Dev · JavaScript</p>
+          <h3 class="project-card__title">Proyecto 2</h3>
+          <p class="project-card__desc">
+            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
+            y cuál fue el impacto o aprendizaje principal.
+          </p>
+          <a href="projects/proyecto-2.html" class="project-card__link">
+            Ver proyecto →
+          </a>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="glass-card project-card animate-up animate-up--d2">
+          <p class="project-card__tag">C# · .NET</p>
+          <h3 class="project-card__title">Proyecto 3</h3>
+          <p class="project-card__desc">
+            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
+            y cuál fue el impacto o aprendizaje principal.
+          </p>
+          <a href="projects/proyecto-3.html" class="project-card__link">
+            Ver proyecto →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACTO ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner animate-up">
+        <span class="section-label">03 — Contacto</span>
+        <h2>¿Trabajamos <span class="text-accent">juntos?</span></h2>
+        <p>
+          Estoy abierto a colaboraciones, prácticas y proyectos freelance.
+          No dudes en escribirme.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:alex.sytnyk729@gmail.com" class="btn btn-primary">
+            Enviar email
+          </a>
+          <a href="https://github.com/1alexmmvi9" target="_blank" rel="noopener" class="btn btn-ghost">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/alex.mmvi" target="_blank" rel="noopener" class="btn btn-ghost">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-wrapper -->
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <p class="footer__text">
+      © 2026 <span>Oleksandr Sytnyk</span> · Hecho con precisión y café ✦
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+  /* ── Theme toggle con transición suave ── */
+  const html        = document.documentElement;
+  const themeBtn    = document.getElementById('theme-toggle');
+  const STORAGE_KEY = 'os-theme';
+
+  // Carga preferencia guardada o del sistema
+  const savedTheme  = localStorage.getItem(STORAGE_KEY);
+  const systemDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
+  html.setAttribute('data-theme', initialTheme);
+
+  themeBtn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem(STORAGE_KEY, next);
+  });
+
+  /* ── Hamburguesa (móvil) ── */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  // Cierra menú al hacer click en enlace
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
 </body>
 </html>
 
