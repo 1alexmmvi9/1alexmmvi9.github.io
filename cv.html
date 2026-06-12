@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CV de Oleksandr Sytnyk — Desarrollador Junior & Data Analytics." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CV de Oleksandr Sytnyk — Desarrollador Web & Ingeniero de Integraciones."/>
   <title>CV — Oleksandr Sytnyk</title>
-
-  <!-- Design System único -->
-  <link rel="stylesheet" href="global.css" />
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="global.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>"/>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     NAVBAR FLOTANTE (idéntica a index)
-══════════════════════════════════════════ -->
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ══ NAVBAR ══ -->
 <nav class="navbar" role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="navbar__logo" aria-label="Inicio">OS✦</a>
 
@@ -24,26 +23,27 @@
   </button>
 
   <div class="navbar__links" id="nav-links">
-    <a href="index.html"    class="navbar__link">Inicio</a>
-    <a href="index.html#about"    class="navbar__link">Sobre mí</a>
-    <a href="index.html#projects" class="navbar__link">Proyectos</a>
-    <a href="cv.html"       class="navbar__link navbar__link--active">CV</a>
-    <a href="index.html#contact"  class="navbar__link">Contacto</a>
+    <a href="index.html"         class="navbar__link" data-i18n="nav.home">Inicio</a>
+    <a href="index.html#about"   class="navbar__link" data-i18n="nav.about">Sobre mí</a>
+    <a href="index.html#projects"class="navbar__link" data-i18n="nav.projects">Proyectos</a>
+    <a href="cv.html"            class="navbar__link navbar__link--active">CV</a>
+    <a href="index.html#contact" class="navbar__link" data-i18n="nav.contact">Contacto</a>
 
-    <a href="https://www.etsy.com/es/shop/TU_TIENDA" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/>
-      </svg>
+    <a href="https://somaproductiones.etsy.com" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/></svg>
       Etsy
     </a>
+
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="Idioma">
+      <span class="lang-opt active" data-lang-btn="es">ES</span>
+      <span class="lang-opt" data-lang-btn="en">EN</span>
+    </div>
 
     <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo claro/oscuro"></button>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     LAYOUT CV
-══════════════════════════════════════════ -->
+<!-- ══ PAGE WRAPPER ══ -->
 <div class="page-wrapper">
 <div class="cv-layout">
 
@@ -52,338 +52,421 @@
 
     <div class="cv-avatar" aria-hidden="true">OS</div>
     <p class="cv-sidebar__name">Oleksandr Sytnyk</p>
-    <p class="cv-sidebar__role">Dev Junior · Data Analytics</p>
+    <p class="cv-sidebar__role" data-i18n="cv.role">Dev · Healthcare Integration</p>
 
     <!-- Contacto -->
     <div class="cv-sidebar__section">
-      <p class="cv-sidebar__section-title">Contacto</p>
+      <p class="cv-sidebar__section-title" data-i18n="cv.contact">Contacto</p>
 
       <div class="cv-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-        </svg>
-        <a href="mailto:tu@email.com" style="color:inherit;">tu@email.com</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <a href="mailto:alex@helixora.es">alex@helixora.es</a>
       </div>
-
       <div class="cv-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
-        <a href="https://github.com/TU_USUARIO" target="_blank" rel="noopener" style="color:inherit;">github.com/TU_USUARIO</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.35 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        <a href="tel:+34624802974">+34 624 802 974</a>
       </div>
-
       <div class="cv-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-        </svg>
-        <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" rel="noopener" style="color:inherit;">LinkedIn</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/1alexmmvi9" target="_blank" rel="noopener">github.com/1alexmmvi9</a>
       </div>
-
       <div class="cv-contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-        </svg>
-        Valencia, España
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/alex.mmvi" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/></svg>
+        <a href="https://helixora.es" target="_blank" rel="noopener">helixora.es</a>
+      </div>
+      <div class="cv-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="cv.location">Valencia, España</span>
       </div>
     </div>
 
     <!-- Idiomas -->
     <div class="cv-sidebar__section">
-      <p class="cv-sidebar__section-title">Idiomas</p>
-
+      <p class="cv-sidebar__section-title" data-i18n="cv.languages">Idiomas</p>
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span>Ucraniano</span><span>Nativo</span></div>
-        <div class="cv-lang-dot">
-          <span class="active"></span><span class="active"></span>
-          <span class="active"></span><span class="active"></span><span class="active"></span>
-        </div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.ua">Ucraniano</span><span data-i18n="lang.native">Nativo</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>
       </div>
-
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span>Español</span><span>Avanzado</span></div>
-        <div class="cv-lang-dot">
-          <span class="active"></span><span class="active"></span>
-          <span class="active"></span><span class="active"></span><span></span>
-        </div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.es">Español</span><span data-i18n="lang.advanced">Avanzado</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
       </div>
-
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span>Inglés</span><span>Intermedio</span></div>
-        <div class="cv-lang-dot">
-          <span class="active"></span><span class="active"></span>
-          <span class="active"></span><span></span><span></span>
-        </div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.en">Inglés</span><span data-i18n="lang.intermediate">Intermedio</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>
       </div>
-
       <div>
-        <div class="cv-skill-bar__label"><span>Ruso</span><span>Nativo</span></div>
-        <div class="cv-lang-dot">
-          <span class="active"></span><span class="active"></span>
-          <span class="active"></span><span class="active"></span><span class="active"></span>
-        </div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.ru">Ruso</span><span data-i18n="lang.native">Nativo</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>
       </div>
     </div>
 
-    <!-- Skills técnicas (barras) -->
+    <!-- Habilidades -->
     <div class="cv-sidebar__section">
-      <p class="cv-sidebar__section-title">Habilidades</p>
-
+      <p class="cv-sidebar__section-title" data-i18n="cv.skills">Habilidades</p>
       <div class="cv-skill-bar">
         <div class="cv-skill-bar__label"><span>HTML / CSS</span><span>90%</span></div>
-        <div class="cv-skill-bar__track">
-          <div class="cv-skill-bar__fill" style="width:90%"></div>
-        </div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:90%"></div></div>
       </div>
-
       <div class="cv-skill-bar">
         <div class="cv-skill-bar__label"><span>JavaScript</span><span>75%</span></div>
-        <div class="cv-skill-bar__track">
-          <div class="cv-skill-bar__fill" style="width:75%"></div>
-        </div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:75%"></div></div>
       </div>
-
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>Mirth Connect</span><span>80%</span></div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:80%"></div></div>
+      </div>
+      <div class="cv-skill-bar">
+        <div class="cv-skill-bar__label"><span>HL7 / XML</span><span>78%</span></div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:78%"></div></div>
+      </div>
       <div class="cv-skill-bar">
         <div class="cv-skill-bar__label"><span>C#</span><span>65%</span></div>
-        <div class="cv-skill-bar__track">
-          <div class="cv-skill-bar__fill" style="width:65%"></div>
-        </div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:65%"></div></div>
       </div>
-
       <div class="cv-skill-bar">
         <div class="cv-skill-bar__label"><span>SQL / Data</span><span>70%</span></div>
-        <div class="cv-skill-bar__track">
-          <div class="cv-skill-bar__fill" style="width:70%"></div>
-        </div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:70%"></div></div>
       </div>
-
       <div class="cv-skill-bar">
         <div class="cv-skill-bar__label"><span>Python</span><span>55%</span></div>
-        <div class="cv-skill-bar__track">
-          <div class="cv-skill-bar__fill" style="width:55%"></div>
-        </div>
+        <div class="cv-skill-bar__track"><div class="cv-skill-bar__fill" style="width:55%"></div></div>
       </div>
     </div>
 
     <!-- Intereses -->
     <div class="cv-sidebar__section">
-      <p class="cv-sidebar__section-title">Intereses</p>
-      <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
-        <div class="skill-chip">🎹 Piano</div>
-        <div class="skill-chip">🎸 Guitarra</div>
+      <p class="cv-sidebar__section-title" data-i18n="cv.interests">Intereses</p>
+      <div class="skills-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="skill-chip">🎸 <span data-i18n="int.guitar">Guitarra</span></div>
+        <div class="skill-chip">🎹 <span data-i18n="int.piano">Piano</span></div>
         <div class="skill-chip">📊 Data</div>
-        <div class="skill-chip">🌍 Viajes</div>
+        <div class="skill-chip">🌍 <span data-i18n="int.travel">Viajes</span></div>
       </div>
     </div>
 
-    <!-- Botón descarga -->
-    <a href="#" class="cv-download-btn" aria-label="Descargar CV en PDF">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Descargar PDF
-    </a>
+    <!-- Botón descarga PDF -->
+    <button class="cv-download-btn" id="downloadBtn" aria-label="Descargar CV en PDF">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span data-i18n="cv.download">Descargar PDF</span>
+    </button>
 
-  </aside><!-- /cv-sidebar -->
+  </aside>
 
   <!-- ── CONTENIDO PRINCIPAL ── -->
-  <main class="cv-main" aria-label="Contenido del currículum">
+  <main class="cv-main" aria-label="Currículum">
 
     <!-- Perfil -->
     <section class="cv-section animate-up">
-      <h2 class="cv-section__title">Perfil</h2>
-      <p>
-        Desarrollador junior y estudiante de Grado Superior en CEAC FP, especializado en
-        tecnologías web y análisis de datos. Combinando un perfil técnico con una visión
-        creativa forjada en la música y la experiencia multicultural, aporto una perspectiva
-        única a cada proyecto. Siempre en busca de nuevos retos que me permitan crecer
-        profesional y personalmente.
+      <h2 class="cv-section__title" data-i18n="cv.profile">Perfil</h2>
+      <p data-i18n="cv.profileText">
+        Desarrollador web front-end e ingeniero de integraciones hospitalarias con experiencia real en entornos de producción clínica.
+        Especializado en Mirth Connect, HL7 y automatización de procesos, conectando sistemas hospitalarios (HIS, EMR, WMS) con robots de logística farmacéutica.
+        Fundador de Helixora, empresa de modernización digital orientada al sector sanitario.
+        Con base sólida en física, matemáticas y análisis de datos, aporto una visión analítica y técnica a cada proyecto.
       </p>
     </section>
 
-    <!-- Formación -->
+    <!-- Experiencia -->
     <section class="cv-section animate-up animate-up--d1">
-      <h2 class="cv-section__title">Formación</h2>
+      <h2 class="cv-section__title" data-i18n="cv.experience">Experiencia</h2>
+
+      <!-- Helixora (fundador) -->
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Helixora</p>
+          <p class="cv-entry__role" data-i18n="helixora.role">Fundador · Ingeniero de Integraciones · Desarrollador Web</p>
+        </div>
+        <p class="cv-entry__date" data-i18n="helixora.date">2025 — Presente</p>
+        <div class="cv-entry__desc" data-i18n="helixora.desc">
+          Empresa de modernización digital y automatización para el sector sanitario y empresarial. Desarrollo de la web corporativa (helixora.es), integraciones HL7 con Mirth Connect y captación de clientes B2B en la Comunidad Valenciana.
+        </div>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Mirth Connect</span><span class="cv-tag">HL7</span><span class="cv-tag">HTML/CSS/JS</span><span class="cv-tag">Vercel</span><span class="cv-tag">B2B</span>
+        </div>
+      </div>
+
+      <!-- Sanustech -->
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">Sanustech Solutions</p>
+          <p class="cv-entry__role" data-i18n="sanus.role">Ingeniero de Integraciones · Prácticas</p>
+        </div>
+        <p class="cv-entry__date" data-i18n="sanus.date">Mar 2026 — Presente</p>
+        <div class="cv-entry__desc">
+          <span data-i18n="sanus.desc">Desarrollo e implementación de integraciones hospitalarias para la automatización de almacenes clínicos mediante Mirth Connect y estándares HL7.</span>
+          <ul>
+            <li data-i18n="sanus.li1">Diseño y configuración de canales de integración en Mirth Connect para conectar sistemas HIS/WMS con robots de almacén automatizado.</li>
+            <li data-i18n="sanus.li2">Integración del sistema farmacéutico Silicon NextGen con WMS y robots de logística interna.</li>
+            <li data-i18n="sanus.li3">Desarrollo de transformaciones de datos clínicos (HL7 → XML) con filtros, transformers y destinos múltiples.</li>
+            <li data-i18n="sanus.li4">Participación presencial en instalaciones en el Hospital Universitari i Politècnic La Fe (Nou d'Octubre) y otros centros.</li>
+            <li data-i18n="sanus.li5">Colaboración directa con ingenieros hospitalarios en entornos de producción real.</li>
+          </ul>
+        </div>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Mirth Connect 4.5.2</span><span class="cv-tag">HL7 v2.x</span><span class="cv-tag">XML</span><span class="cv-tag">WMS</span><span class="cv-tag">HIS</span>
+        </div>
+      </div>
+
+      <!-- ESATUR -->
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company">ESATUR — VIP Lounge Valencia Airport</p>
+          <p class="cv-entry__role" data-i18n="esatur.role">Auxiliar Administrativo</p>
+        </div>
+        <p class="cv-entry__date" data-i18n="esatur.date">Mar 2025 — Ene 2026</p>
+        <div class="cv-entry__desc">
+          <span data-i18n="esatur.desc">Combiné tareas administrativas tradicionales con un enfoque propio de automatización y análisis de datos en la sala VIP del aeropuerto de Valencia.</span>
+          <ul>
+            <li data-i18n="esatur.li1">Seguimiento de inventario y análisis de consumo de productos con Excel, generando informes mensuales para decisiones de compra.</li>
+            <li data-i18n="esatur.li2">Coordinación de anuncios de vuelos y gestión de turnos del personal.</li>
+            <li data-i18n="esatur.li3">Diseño e implementación de herramientas Excel automatizadas y programas personalizados para eliminar entrada manual de datos.</li>
+            <li data-i18n="esatur.li4">Desarrollo de dashboards dinámicos de gastos y gráficos de tendencias para informar a dirección.</li>
+            <li data-i18n="esatur.li5">Aplicación de análisis estadístico con distribución gaussiana para detectar anomalías y oportunidades de ahorro.</li>
+          </ul>
+        </div>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Excel avanzado</span><span class="cv-tag">Automatización</span><span class="cv-tag">Análisis estadístico</span><span class="cv-tag">Dashboards</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Formación -->
+    <section class="cv-section animate-up animate-up--d2">
+      <h2 class="cv-section__title" data-i18n="cv.education">Formación</h2>
 
       <div class="cv-entry">
         <div>
           <p class="cv-entry__company">CEAC FP</p>
-          <p class="cv-entry__role">Grado Superior — Desarrollo de Aplicaciones Web / IT</p>
+          <p class="cv-entry__role" data-i18n="ceac.role">Grado Superior — Desarrollo de Aplicaciones Web (DAW)</p>
         </div>
-        <p class="cv-entry__date">2023 — Presente</p>
-        <p class="cv-entry__desc">
-          Formación en desarrollo web full-stack, bases de datos, redes y soluciones IT.
-          Enfoque práctico en proyectos reales con tecnologías actuales del mercado.
-        </p>
+        <p class="cv-entry__date" data-i18n="ceac.date">2023 — 2026</p>
+        <div class="cv-entry__desc" data-i18n="ceac.desc">
+          Formación en desarrollo web full-stack, bases de datos, redes y soluciones IT. Proyecto final: web corporativa de Helixora + canal de integración HL7 con Mirth Connect.
+        </div>
         <div class="cv-entry__tags">
-          <span class="cv-tag">HTML/CSS</span>
-          <span class="cv-tag">JavaScript</span>
-          <span class="cv-tag">C#</span>
-          <span class="cv-tag">SQL</span>
-          <span class="cv-tag">Redes</span>
+          <span class="cv-tag">HTML/CSS</span><span class="cv-tag">JavaScript</span><span class="cv-tag">C#</span><span class="cv-tag">SQL</span><span class="cv-tag">Redes</span>
         </div>
       </div>
 
       <div class="cv-entry">
         <div>
-          <p class="cv-entry__company">Formación autodidacta</p>
-          <p class="cv-entry__role">Data Analytics & Visualización de Datos</p>
+          <p class="cv-entry__company" data-i18n="bach.company">Gran Asociación (Valencia)</p>
+          <p class="cv-entry__role" data-i18n="bach.role">Bachillerato Científico-Tecnológico</p>
         </div>
-        <p class="cv-entry__date">2022 — Presente</p>
-        <p class="cv-entry__desc">
-          Aprendizaje continuo en Python para análisis de datos, Power BI, Excel avanzado
-          y estadística aplicada a través de plataformas como Coursera, Kaggle y proyectos propios.
-        </p>
+        <p class="cv-entry__date" data-i18n="bach.date">Finalizado</p>
+        <div class="cv-entry__desc" data-i18n="bach.desc">
+          Especialización en Física, Matemáticas, Dibujo Técnico y Filosofía. Base analítica y pensamiento crítico aplicados al desarrollo técnico.
+        </div>
         <div class="cv-entry__tags">
-          <span class="cv-tag">Python</span>
-          <span class="cv-tag">Power BI</span>
-          <span class="cv-tag">Pandas</span>
-          <span class="cv-tag">Excel</span>
-          <span class="cv-tag">Estadística</span>
+          <span class="cv-tag">Física</span><span class="cv-tag">Matemáticas</span><span class="cv-tag">Dibujo Técnico</span>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div>
+          <p class="cv-entry__company" data-i18n="self.company">Formación autodidacta</p>
+          <p class="cv-entry__role" data-i18n="self.role">Data Analytics & Visualización de Datos</p>
+        </div>
+        <p class="cv-entry__date" data-i18n="self.date">2022 — Presente</p>
+        <div class="cv-entry__desc" data-i18n="self.desc">
+          Aprendizaje continuo en Python para análisis de datos, Power BI, Excel avanzado y estadística aplicada a través de Coursera, Kaggle y proyectos propios.
+        </div>
+        <div class="cv-entry__tags">
+          <span class="cv-tag">Python</span><span class="cv-tag">Power BI</span><span class="cv-tag">Pandas</span><span class="cv-tag">Excel</span><span class="cv-tag">Estadística</span>
         </div>
       </div>
     </section>
 
-    <!-- Experiencia -->
-    <section class="cv-section animate-up animate-up--d2">
-      <h2 class="cv-section__title">Experiencia</h2>
-
-      <div class="cv-entry">
-        <div>
-          <p class="cv-entry__company">Proyectos personales</p>
-          <p class="cv-entry__role">Desarrollador Full-Stack / Freelance</p>
-        </div>
-        <p class="cv-entry__date">2022 — Presente</p>
-        <p class="cv-entry__desc">
-          Desarrollo de aplicaciones web propias, herramientas de análisis de datos y
-          proyectos creativos. Gestión integral del ciclo de vida del software: diseño,
-          desarrollo, despliegue y mantenimiento en GitHub Pages.
-        </p>
-        <div class="cv-entry__tags">
-          <span class="cv-tag">HTML/CSS</span>
-          <span class="cv-tag">JavaScript</span>
-          <span class="cv-tag">GitHub Pages</span>
-          <span class="cv-tag">Git</span>
-        </div>
-      </div>
-
-      <div class="cv-entry">
-        <div>
-          <p class="cv-entry__company">Tienda Etsy</p>
-          <p class="cv-entry__role">Creador de Productos Digitales</p>
-        </div>
-        <p class="cv-entry__date">2023 — Presente</p>
-        <p class="cv-entry__desc">
-          Creación y venta de productos digitales en Etsy. Gestión de la tienda online,
-          atención al cliente internacional y marketing de contenidos.
-        </p>
-        <div class="cv-entry__tags">
-          <span class="cv-tag">E-commerce</span>
-          <span class="cv-tag">Marketing digital</span>
-          <span class="cv-tag">Diseño gráfico</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proyectos destacados -->
+    <!-- Proyectos -->
     <section class="cv-section animate-up animate-up--d3">
-      <h2 class="cv-section__title">Proyectos destacados</h2>
+      <h2 class="cv-section__title" data-i18n="cv.projects">Proyectos destacados</h2>
 
       <div class="cv-entry">
         <div>
-          <p class="cv-entry__company">Portfolio Personal</p>
-          <p class="cv-entry__role">Proyecto 1 — [Nombre del proyecto]</p>
+          <p class="cv-entry__company">helixora.es</p>
+          <p class="cv-entry__role" data-i18n="proj.hx.role">Web corporativa B2B — HTML / CSS / JS</p>
         </div>
-        <p class="cv-entry__date">2024</p>
-        <p class="cv-entry__desc">
-          Descripción del proyecto. Qué problema resuelve, metodología aplicada
-          y resultados obtenidos. Enlaza con la página de detalle.
-        </p>
+        <p class="cv-entry__date">2025</p>
+        <div class="cv-entry__desc" data-i18n="proj.hx.desc">
+          Sitio web completo construido en un único archivo. Sistema bilingüe ES/EN con JavaScript vanilla, formulario Web3Forms, diseño responsive mobile-first, despliegue en Vercel con DNS personalizado, HTTPS y autenticación SPF/DKIM/DMARC.
+        </div>
         <div class="cv-entry__tags">
-          <span class="cv-tag">Python</span>
-          <span class="cv-tag">Data Analytics</span>
+          <span class="cv-tag">HTML5</span><span class="cv-tag">CSS3</span><span class="cv-tag">JavaScript</span><span class="cv-tag">Vercel</span><span class="cv-tag">DNS</span>
         </div>
       </div>
 
       <div class="cv-entry">
         <div>
-          <p class="cv-entry__company">Portfolio Personal</p>
-          <p class="cv-entry__role">Proyecto 2 — [Nombre del proyecto]</p>
+          <p class="cv-entry__company" data-i18n="proj.mirth.company">Canal HL7 Demo — Mirth Connect</p>
+          <p class="cv-entry__role" data-i18n="proj.mirth.role">Integración hospitalaria — Proyecto DAW</p>
         </div>
-        <p class="cv-entry__date">2024</p>
-        <p class="cv-entry__desc">
-          Descripción del proyecto. Qué problema resuelve, metodología aplicada
-          y resultados obtenidos.
-        </p>
+        <p class="cv-entry__date">2026</p>
+        <div class="cv-entry__desc" data-i18n="proj.mirth.desc">
+          Canal Mirth Connect que recibe mensajes HL7 (ADT, ORU), los transforma a XML con JavaScript y los enruta a múltiples destinos según filtros condicionales. Demuestra enrutamiento condicional en tiempo real.
+        </div>
         <div class="cv-entry__tags">
-          <span class="cv-tag">JavaScript</span>
-          <span class="cv-tag">API REST</span>
+          <span class="cv-tag">Mirth Connect</span><span class="cv-tag">HL7</span><span class="cv-tag">XML</span><span class="cv-tag">JavaScript</span>
         </div>
       </div>
     </section>
 
     <!-- Otras habilidades -->
     <section class="cv-section animate-up animate-up--d4">
-      <h2 class="cv-section__title">Otras habilidades</h2>
-      <div class="skills-grid" style="grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));">
-        <div class="skill-chip">Piano · Guitarra</div>
-        <div class="skill-chip">Pensamiento creativo</div>
-        <div class="skill-chip">Adaptabilidad</div>
-        <div class="skill-chip">Trabajo en equipo</div>
-        <div class="skill-chip">Comunicación</div>
-        <div class="skill-chip">Experiencia multicultural</div>
+      <h2 class="cv-section__title" data-i18n="cv.other">Otras habilidades</h2>
+      <div class="skills-grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+        <div class="skill-chip" data-i18n="skill.guitar">🎸 Guitarra · Piano</div>
+        <div class="skill-chip" data-i18n="skill.creative">💡 Pensamiento creativo</div>
+        <div class="skill-chip" data-i18n="skill.adapt">🌍 Adaptabilidad</div>
+        <div class="skill-chip" data-i18n="skill.team">🤝 Trabajo en equipo</div>
+        <div class="skill-chip" data-i18n="skill.comm">💬 Comunicación</div>
+        <div class="skill-chip" data-i18n="skill.multi">🌐 Perfil multicultural</div>
       </div>
     </section>
 
-  </main><!-- /cv-main -->
+  </main>
 
 </div><!-- /cv-layout -->
 </div><!-- /page-wrapper -->
 
-<!-- ── Footer ── -->
 <footer>
   <div class="container">
-    <p class="footer__text">
-      © 2025 <span>Oleksandr Sytnyk</span> · Currículum generado con amor y CSS ✦
+    <p class="footer__text" data-i18n="footer.text">
+      © 2026 <span>Oleksandr Sytnyk</span> · Currículum generado con amor y CSS ✦
     </p>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════ -->
+<!-- ══ SCRIPTS ══ -->
 <script>
-  /* ── Theme toggle ── */
-  const html        = document.documentElement;
-  const themeBtn    = document.getElementById('theme-toggle');
-  const STORAGE_KEY = 'os-theme';
+/* ── CURSOR ── */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let rx=0,ry=0,mx=0,my=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,.skill-chip').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+});
 
-  const savedTheme  = localStorage.getItem(STORAGE_KEY);
-  const systemDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
-  html.setAttribute('data-theme', initialTheme);
+/* ── THEME ── */
+const html=document.documentElement;
+const themeBtn=document.getElementById('theme-toggle');
+const TKEY='os-theme';
+const saved=localStorage.getItem(TKEY);
+const sysDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+html.setAttribute('data-theme',saved||(sysDark?'dark':'light'));
+themeBtn.addEventListener('click',()=>{
+  const next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem(TKEY,next);
+});
 
-  themeBtn.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem(STORAGE_KEY, next);
+/* ── HAMBURGER ── */
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('nav-links');
+hamburger.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');hamburger.setAttribute('aria-expanded',open);});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');hamburger.setAttribute('aria-expanded','false');}));
+
+/* ── INTERNATIONALISATION ── */
+const i18n = {
+  es: {
+    'nav.home':'Inicio','nav.about':'Sobre mí','nav.projects':'Proyectos','nav.contact':'Contacto',
+    'cv.role':'Dev · Healthcare Integration',
+    'cv.contact':'Contacto','cv.location':'Valencia, España',
+    'cv.languages':'Idiomas','cv.skills':'Habilidades','cv.interests':'Intereses',
+    'cv.download':'Descargar PDF','cv.profile':'Perfil','cv.experience':'Experiencia',
+    'cv.education':'Formación','cv.projects':'Proyectos destacados','cv.other':'Otras habilidades',
+    'lang.ua':'Ucraniano','lang.es':'Español','lang.en':'Inglés','lang.ru':'Ruso',
+    'lang.native':'Nativo','lang.advanced':'Avanzado','lang.intermediate':'Intermedio',
+    'cv.profileText':'Desarrollador web front-end e ingeniero de integraciones hospitalarias con experiencia real en entornos de producción clínica. Especializado en Mirth Connect, HL7 y automatización de procesos. Fundador de Helixora. Base sólida en física, matemáticas y análisis de datos.',
+    'helixora.role':'Fundador · Ingeniero de Integraciones · Desarrollador Web','helixora.date':'2025 — Presente',
+    'helixora.desc':'Empresa de modernización digital y automatización para el sector sanitario. Desarrollo de helixora.es, integraciones HL7 con Mirth Connect y captación de clientes B2B en Valencia.',
+    'sanus.role':'Ingeniero de Integraciones · Prácticas','sanus.date':'Mar 2026 — Presente',
+    'sanus.desc':'Desarrollo e implementación de integraciones hospitalarias para la automatización de almacenes clínicos con Mirth Connect y HL7.',
+    'sanus.li1':'Diseño y configuración de canales Mirth Connect para conectar sistemas HIS/WMS con robots de almacén.','sanus.li2':'Integración del sistema farmacéutico Silicon NextGen con WMS y robots de logística interna.','sanus.li3':'Transformaciones HL7 → XML con filtros, transformers y destinos múltiples.','sanus.li4':'Instalaciones presenciales en el Hospital La Fe (Nou d\'Octubre) y otros centros.','sanus.li5':'Colaboración directa con ingenieros hospitalarios en producción real.',
+    'esatur.role':'Auxiliar Administrativo','esatur.date':'Mar 2025 — Ene 2026',
+    'esatur.desc':'Tareas administrativas combinadas con automatización y análisis de datos en la VIP Lounge del Aeropuerto de Valencia.',
+    'esatur.li1':'Seguimiento de inventario y análisis de consumo con Excel, informes mensuales para compras.','esatur.li2':'Coordinación de anuncios de vuelos y gestión de turnos del personal.','esatur.li3':'Herramientas Excel automatizadas para eliminar entrada manual de datos.','esatur.li4':'Dashboards dinámicos de gastos con gráficos y tendencias para dirección.','esatur.li5':'Análisis estadístico con distribución gaussiana para detectar anomalías y oportunidades de ahorro.',
+    'ceac.role':'Grado Superior — Desarrollo de Aplicaciones Web (DAW)','ceac.date':'2023 — 2026',
+    'ceac.desc':'Desarrollo web full-stack, bases de datos, redes y soluciones IT. Proyecto final: web Helixora + canal HL7 con Mirth Connect.',
+    'bach.company':'Gran Asociación (Valencia)','bach.role':'Bachillerato Científico-Tecnológico','bach.date':'Finalizado',
+    'bach.desc':'Física, Matemáticas, Dibujo Técnico y Filosofía. Base analítica aplicada al desarrollo técnico.',
+    'self.company':'Formación autodidacta','self.role':'Data Analytics & Visualización de Datos','self.date':'2022 — Presente',
+    'self.desc':'Python, Power BI, Excel avanzado y estadística mediante Coursera, Kaggle y proyectos propios.',
+    'proj.hx.role':'Web corporativa B2B — HTML / CSS / JS',
+    'proj.hx.desc':'Web completa en un único archivo. Bilingüe ES/EN, Web3Forms, responsive, Vercel, DNS, HTTPS, SPF/DKIM/DMARC.',
+    'proj.mirth.company':'Canal HL7 Demo — Mirth Connect','proj.mirth.role':'Integración hospitalaria — Proyecto DAW',
+    'proj.mirth.desc':'Canal Mirth que recibe HL7, transforma a XML y enruta a destinos múltiples con filtros condicionales.',
+    'skill.guitar':'🎸 Guitarra · Piano','skill.creative':'💡 Pensamiento creativo','skill.adapt':'🌍 Adaptabilidad','skill.team':'🤝 Trabajo en equipo','skill.comm':'💬 Comunicación','skill.multi':'🌐 Perfil multicultural',
+    'int.guitar':'Guitarra','int.piano':'Piano','int.travel':'Viajes',
+    'footer.text':'© 2026 <span>Oleksandr Sytnyk</span> · Currículum generado con amor y CSS ✦',
+  },
+  en: {
+    'nav.home':'Home','nav.about':'About','nav.projects':'Projects','nav.contact':'Contact',
+    'cv.role':'Dev · Healthcare Integration',
+    'cv.contact':'Contact','cv.location':'Valencia, Spain',
+    'cv.languages':'Languages','cv.skills':'Skills','cv.interests':'Interests',
+    'cv.download':'Download PDF','cv.profile':'Profile','cv.experience':'Experience',
+    'cv.education':'Education','cv.projects':'Featured projects','cv.other':'Other skills',
+    'lang.ua':'Ukrainian','lang.es':'Spanish','lang.en':'English','lang.ru':'Russian',
+    'lang.native':'Native','lang.advanced':'Advanced','lang.intermediate':'Intermediate',
+    'cv.profileText':'Front-end web developer and healthcare integration engineer with real production experience in clinical environments. Specialised in Mirth Connect, HL7 and process automation. Founder of Helixora. Solid background in physics, mathematics and data analysis.',
+    'helixora.role':'Founder · Integration Engineer · Web Developer','helixora.date':'2025 — Present',
+    'helixora.desc':'Digital modernisation and automation company for the healthcare sector. Built helixora.es, HL7 integrations with Mirth Connect and B2B client acquisition in Valencia.',
+    'sanus.role':'Integration Engineer · Internship','sanus.date':'Mar 2026 — Present',
+    'sanus.desc':'Development and implementation of hospital integrations for clinical warehouse automation using Mirth Connect and HL7.',
+    'sanus.li1':'Design and configuration of Mirth Connect channels to connect HIS/WMS with automated warehouse robots.','sanus.li2':'Integration of Silicon NextGen pharmacy system with WMS and internal logistics robots.','sanus.li3':'HL7 → XML data transformations with filters, transformers and multiple destinations.','sanus.li4':'On-site installations at Hospital La Fe (Nou d\'Octubre) and other centres.','sanus.li5':'Direct collaboration with hospital engineers in live production environments.',
+    'esatur.role':'Administrative Assistant','esatur.date':'Mar 2025 — Jan 2026',
+    'esatur.desc':'Combined traditional administrative duties with self-driven automation and data analysis at Valencia Airport VIP Lounge.',
+    'esatur.li1':'Inventory tracking and consumption analysis using Excel, monthly reports for purchasing decisions.','esatur.li2':'Flight announcement coordination and staff scheduling.','esatur.li3':'Automated Excel tools and custom programs to eliminate repetitive manual data entry.','esatur.li4':'Dynamic expense dashboards and trend charts providing financial insight to management.','esatur.li5':'Statistical analysis using Gaussian distribution to monitor patterns and detect cost-saving opportunities.',
+    'ceac.role':'Higher National Diploma — Web Application Development (DAW)','ceac.date':'2023 — 2026',
+    'ceac.desc':'Full-stack web development, databases, networking and IT solutions. Final project: Helixora website + HL7 Mirth Connect channel.',
+    'bach.company':'Gran Asociación (Valencia)','bach.role':'Scientific-Technological Baccalaureate','bach.date':'Completed',
+    'bach.desc':'Physics, Mathematics, Technical Drawing and Philosophy. Analytical foundation applied to technical development.',
+    'self.company':'Self-directed learning','self.role':'Data Analytics & Data Visualisation','self.date':'2022 — Present',
+    'self.desc':'Python for data analysis, Power BI, advanced Excel and applied statistics via Coursera, Kaggle and own projects.',
+    'proj.hx.role':'B2B Corporate Website — HTML / CSS / JS',
+    'proj.hx.desc':'Full website in a single file. Bilingual ES/EN, Web3Forms, responsive, Vercel, custom DNS, HTTPS, SPF/DKIM/DMARC.',
+    'proj.mirth.company':'HL7 Demo Channel — Mirth Connect','proj.mirth.role':'Hospital Integration — DAW Final Project',
+    'proj.mirth.desc':'Mirth channel that receives HL7, transforms to XML and routes to multiple destinations with conditional filters.',
+    'skill.guitar':'🎸 Guitar · Piano','skill.creative':'💡 Creative thinking','skill.adapt':'🌍 Adaptability','skill.team':'🤝 Teamwork','skill.comm':'💬 Communication','skill.multi':'🌐 Multicultural profile',
+    'int.guitar':'Guitar','int.piano':'Piano','int.travel':'Travel',
+    'footer.text':'© 2026 <span>Oleksandr Sytnyk</span> · Built with love and CSS ✦',
+  }
+};
+
+let currentLang = localStorage.getItem('os-lang') || 'es';
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('os-lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
   });
-
-  /* ── Hamburguesa ── */
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langBtn === lang);
   });
+}
+document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.langBtn));
+});
+applyLang(currentLang);
 
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
+/* ── PDF DOWNLOAD ── */
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  // Reveal contact info that's normally in sidebar links
+  // and trigger browser print (which uses @media print CSS)
+  window.print();
+});
 </script>
 
 </body>

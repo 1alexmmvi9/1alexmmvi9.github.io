@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Oleksandr Sytnyk — Desarrollador Junior & Especialista en Data Analytics. Portfolio personal." />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Oleksandr Sytnyk — Desarrollador Web & Ingeniero de Integraciones Hospitalarias. Portfolio personal."/>
   <title>Oleksandr Sytnyk — Portfolio</title>
-
-  <!-- Design System único -->
-  <link rel="stylesheet" href="global.css" />
-
-  <!-- Favicon placeholder -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="stylesheet" href="global.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>"/>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     NAVBAR FLOTANTE
-══════════════════════════════════════════ -->
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ══ NAVBAR ══ -->
 <nav class="navbar" role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="navbar__logo" aria-label="Inicio">OS✦</a>
 
@@ -25,13 +23,12 @@
   </button>
 
   <div class="navbar__links" id="nav-links">
-    <a href="index.html"    class="navbar__link navbar__link--active">Inicio</a>
-    <a href="#about"        class="navbar__link">Sobre mí</a>
-    <a href="#projects"     class="navbar__link">Proyectos</a>
+    <a href="index.html"    class="navbar__link navbar__link--active" data-i18n="nav.home">Inicio</a>
+    <a href="#about"        class="navbar__link" data-i18n="nav.about">Sobre mí</a>
+    <a href="#projects"     class="navbar__link" data-i18n="nav.projects">Proyectos</a>
     <a href="cv.html"       class="navbar__link">CV</a>
-    <a href="#contact"      class="navbar__link">Contacto</a>
+    <a href="#contact"      class="navbar__link" data-i18n="nav.contact">Contacto</a>
 
-    <!-- Botón Etsy — añade tu URL aquí -->
     <a href="https://somaproductiones.etsy.com" target="_blank" rel="noopener" class="navbar__btn-etsy" aria-label="Visitar tienda Etsy">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M9.56 2.68c-.25 1.44-.36 2.9-.33 4.36H5.7c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18H.88A20.8 20.8 0 0 1 .55 2.7a10.87 10.87 0 0 1 9.01-.02zm4.88 0a10.87 10.87 0 0 1 9.01.02 20.8 20.8 0 0 1-.33 4.34h-1.65c.18-.72.34-1.44.34-2.18a1.82 1.82 0 0 0-1.83-1.82 1.82 1.82 0 0 0-1.82 1.82c0 .74.16 1.46.34 2.18h-3.57c.03-1.46-.08-2.92-.33-4.36h-.16zM12 8.37h5.36a20.27 20.27 0 0 1-1.07 4.36h-4.29V8.37zm-7.36 0H10V12.73H5.71a20.27 20.27 0 0 1-1.07-4.36zm7.36 5.69h3.78a10.88 10.88 0 0 1-3.78 7.26V14.06zm-3.78 0H12v7.26a10.88 10.88 0 0 1-3.78-7.26z"/>
@@ -39,14 +36,17 @@
       Etsy
     </a>
 
-    <!-- Toggle de tema -->
+    <!-- LANG TOGGLE -->
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="Idioma">
+      <span class="lang-opt active" data-lang-btn="es">ES</span>
+      <span class="lang-opt" data-lang-btn="en">EN</span>
+    </div>
+
     <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar modo claro/oscuro"></button>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     CONTENIDO DE PÁGINA
-══════════════════════════════════════════ -->
+<!-- ══ PAGE WRAPPER ══ -->
 <div class="page-wrapper">
 
   <!-- ── HERO ── -->
@@ -55,8 +55,8 @@
     <div class="container">
       <div class="hero__content">
 
-        <p class="hero__eyebrow animate-up">
-          Desarrollador Junior &amp; Data Analytics
+        <p class="hero__eyebrow animate-up" data-i18n="hero.eyebrow">
+          Desarrollador Web · Ingeniero de Integraciones
         </p>
 
         <h1 class="hero__title animate-up animate-up--d1">
@@ -64,16 +64,16 @@
           <span class="text-accent">Sytnyk</span>
         </h1>
 
-        <p class="hero__subtitle animate-up animate-up--d2">
-          Estudiante de Grado Superior en CEAC FP con base sólida en
-          <strong>HTML, CSS, JavaScript y C#</strong>. Apasionado por el desarrollo
-          online, las soluciones IT y el análisis de datos. Ciudadano del mundo con
-          perspectiva global y alma de artista.
+        <p class="hero__subtitle animate-up animate-up--d2" data-i18n="hero.subtitle">
+          Desarrollador web front-end e ingeniero de integraciones hospitalarias.
+          Experiencia real en entornos de producción clínica con
+          <strong>Mirth Connect, HL7 y automatización de procesos</strong>.
+          Construyo soluciones que funcionan de verdad.
         </p>
 
         <div class="hero__actions animate-up animate-up--d3">
-          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-          <a href="cv.html"   class="btn btn-ghost">Currículum →</a>
+          <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Ver proyectos</a>
+          <a href="cv.html"   class="btn btn-ghost" data-i18n="hero.cta2">Currículum →</a>
         </div>
 
       </div>
@@ -83,54 +83,51 @@
   <!-- ── SOBRE MÍ ── -->
   <section id="about">
     <div class="container">
-      <span class="section-label">01 — Sobre mí</span>
+      <span class="section-label reveal" data-i18n="about.label">01 — Sobre mí</span>
 
       <div class="about-grid">
-        <!-- Texto biográfico -->
-        <div class="about__text animate-up">
+        <div class="about__text reveal">
           <div class="about__badge">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
-              <circle cx="5" cy="5" r="5"/>
-            </svg>
-            Actualmente disponible
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="5"/></svg>
+            <span data-i18n="about.badge">Disponible para proyectos</span>
           </div>
 
-          <h2>Código, datos y <span class="text-accent">creatividad</span></h2>
+          <h2>
+            <span data-i18n="about.h2a">Código, integraciones y</span>
+            <span class="text-accent" data-i18n="about.h2b"> resultados reales.</span>
+          </h2>
 
-          <p style="margin-top:1.2rem;">
-            Actualmente estoy inmerso en el fascinante mundo de la tecnología como estudiante de Grado Superior en CEAC FP.
-            Con una base sólida en <strong>HTML, CSS, JavaScript y C#</strong>, me considero un desarrollador junior
-            apasionado por crear mis propios proyectos, siempre enfocado en el desarrollo online y las soluciones IT.
+          <p style="margin-top:1.2rem" data-i18n="about.p1">
+            Soy desarrollador web front-end e ingeniero de integraciones hospitalarias.
+            Trabajo con <strong>Mirth Connect y HL7</strong> en entornos de producción real,
+            conectando sistemas hospitalarios (HIS, EMR, WMS) con robots de automatización clínica.
           </p>
-          <p>
-            Más allá del código, la creatividad fluye a través de mis dedos cuando me siento al piano o cojo la guitarra.
-            La música es una parte esencial de mi vida: un espacio donde la lógica y la expresión se encuentran.
-            Esta dualidad entre el rigor técnico y la libertad artística define mi manera de abordar cada desafío.
+          <p data-i18n="about.p2">
+            Mi diferencial no es solo escribir código limpio — es entender cómo conectan los sistemas,
+            dónde fallan los procesos y cómo resolverlo con tecnología que funciona de verdad en producción.
+            Tengo formación en física y matemáticas que me hace pensar analíticamente antes de tocar el teclado.
           </p>
-          <p>
-            Mi trayectoria personal se ha enriquecido con una amplia experiencia intercultural. Haber vivido en
-            diversos países me ha dotado de una perspectiva global y una gran capacidad de adaptación, habilidades
-            que aplico en la resolución creativa de problemas. Soy un desarrollador con alma de artista y un
-            ciudadano del mundo, siempre listo para el próximo reto.
+          <p data-i18n="about.p3">
+            Fuera del trabajo, la música fluye a través de la guitarra y el piano. La dualidad entre
+            rigor técnico y expresión artística define cómo abordo cada reto.
           </p>
         </div>
 
-        <!-- Skills -->
-        <div class="animate-up animate-up--d2">
-          <span class="section-label">Stack tecnológico</span>
+        <div class="reveal reveal-d2">
+          <span class="section-label" data-i18n="about.stack">Stack tecnológico</span>
           <div class="skills-grid">
             <div class="skill-chip">HTML5</div>
             <div class="skill-chip">CSS3</div>
             <div class="skill-chip">JavaScript</div>
+            <div class="skill-chip">Mirth Connect</div>
+            <div class="skill-chip">HL7 v2.x</div>
+            <div class="skill-chip">XML / JSON</div>
             <div class="skill-chip">C#</div>
             <div class="skill-chip">Python</div>
             <div class="skill-chip">SQL</div>
             <div class="skill-chip">Git</div>
-            <div class="skill-chip">Data Analytics</div>
             <div class="skill-chip">Power BI</div>
-            <div class="skill-chip">Excel</div>
-            <div class="skill-chip">React</div>
-            <div class="skill-chip">Node.js</div>
+            <div class="skill-chip">Excel avanzado</div>
           </div>
         </div>
       </div>
@@ -140,50 +137,41 @@
   <!-- ── PROYECTOS ── -->
   <section id="projects">
     <div class="container">
-      <span class="section-label">02 — Proyectos</span>
-      <h2 style="margin-bottom:var(--space-xl)">
-        Trabajo <span class="text-accent">seleccionado</span>
+      <span class="section-label reveal" data-i18n="projects.label">02 — Proyectos</span>
+      <h2 style="margin-bottom:var(--space-xl)" class="reveal">
+        <span data-i18n="projects.h2a">Trabajo </span><span class="text-accent" data-i18n="projects.h2b">seleccionado</span>
       </h2>
 
       <div class="projects-grid">
 
-        <!-- Proyecto 1 -->
-        <article class="glass-card project-card animate-up">
-          <p class="project-card__tag">Data Analytics · Python</p>
-          <h3 class="project-card__title">Proyecto 1</h3>
-          <p class="project-card__desc">
-            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
-            y cuál fue el impacto o aprendizaje principal.
+        <article class="glass-card project-card reveal">
+          <p class="project-card__tag">Healthcare · Mirth Connect · HL7</p>
+          <h3 class="project-card__title" data-i18n="proj1.title">Integraciones hospitalarias</h3>
+          <p class="project-card__desc" data-i18n="proj1.desc">
+            Diseño e implementación de canales Mirth Connect en entornos hospitalarios reales.
+            Transformaciones HL7 → XML, filtros, destinos múltiples y conexión de sistemas HIS/WMS con robots farmacéuticos.
           </p>
-          <a href="projects/proyecto-1.html" class="project-card__link">
-            Ver proyecto →
-          </a>
+          <a href="cv.html" class="project-card__link" data-i18n="proj1.link">Ver en CV →</a>
         </article>
 
-        <!-- Proyecto 2 -->
-        <article class="glass-card project-card animate-up animate-up--d1">
-          <p class="project-card__tag">Web Dev · JavaScript</p>
-          <h3 class="project-card__title">Proyecto 2</h3>
-          <p class="project-card__desc">
-            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
-            y cuál fue el impacto o aprendizaje principal.
+        <article class="glass-card project-card reveal reveal-d1">
+          <p class="project-card__tag">Web Dev · HTML · CSS · JS</p>
+          <h3 class="project-card__title" data-i18n="proj2.title">Helixora — Web corporativa</h3>
+          <p class="project-card__desc" data-i18n="proj2.desc">
+            Web B2B completa construida desde cero en un único archivo HTML/CSS/JS.
+            Sistema bilingüe, formulario con Web3Forms, responsive mobile-first y despliegue en Vercel con DNS y HTTPS.
           </p>
-          <a href="projects/proyecto-2.html" class="project-card__link">
-            Ver proyecto →
-          </a>
+          <a href="https://helixora.es" target="_blank" rel="noopener" class="project-card__link" data-i18n="proj2.link">Ver proyecto →</a>
         </article>
 
-        <!-- Proyecto 3 -->
-        <article class="glass-card project-card animate-up animate-up--d2">
-          <p class="project-card__tag">C# · .NET</p>
-          <h3 class="project-card__title">Proyecto 3</h3>
-          <p class="project-card__desc">
-            Descripción breve del proyecto. Qué problema resuelve, qué tecnologías usa
-            y cuál fue el impacto o aprendizaje principal.
+        <article class="glass-card project-card reveal reveal-d2">
+          <p class="project-card__tag">Data Analytics · Excel · Python</p>
+          <h3 class="project-card__title" data-i18n="proj3.title">Automatización administrativa</h3>
+          <p class="project-card__desc" data-i18n="proj3.desc">
+            Herramientas Excel con macros y programas personalizados para eliminar entrada manual de datos,
+            dashboards dinámicos de gasto y análisis estadístico con distribución gaussiana para detección de anomalías.
           </p>
-          <a href="projects/proyecto-3.html" class="project-card__link">
-            Ver proyecto →
-          </a>
+          <a href="cv.html" class="project-card__link" data-i18n="proj3.link">Ver en CV →</a>
         </article>
 
       </div>
@@ -193,23 +181,55 @@
   <!-- ── CONTACTO ── -->
   <section id="contact">
     <div class="container">
-      <div class="contact-inner animate-up">
-        <span class="section-label">03 — Contacto</span>
-        <h2>¿Trabajamos <span class="text-accent">juntos?</span></h2>
-        <p>
-          Estoy abierto a colaboraciones, prácticas y proyectos freelance.
+      <div class="contact-inner reveal">
+        <span class="section-label" data-i18n="contact.label">03 — Contacto</span>
+        <h2>
+          <span data-i18n="contact.h2a">¿Trabajamos </span><span class="text-accent" data-i18n="contact.h2b">juntos?</span>
+        </h2>
+        <p data-i18n="contact.p">
+          Estoy disponible para integraciones, desarrollo web y automatización.
           No dudes en escribirme.
         </p>
 
         <div class="contact-links">
-          <a href="mailto:alex.sytnyk729@gmail.com" class="btn btn-primary">
+          <a href="mailto:alex@helixora.es" class="btn btn-primary" data-i18n="contact.email">
             Enviar email
           </a>
-          <a href="https://github.com/1alexmmvi9" target="_blank" rel="noopener" class="btn btn-ghost">
+          <a href="https://helixora.es" target="_blank" rel="noopener" class="btn btn-ghost">
+            helixora.es
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://github.com/1alexmmvi9" target="_blank" rel="noopener" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
             GitHub
           </a>
-          <a href="https://linkedin.com/in/alex.mmvi" target="_blank" rel="noopener" class="btn btn-ghost">
+          <a href="https://linkedin.com/in/alex.mmvi" target="_blank" rel="noopener" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
             LinkedIn
+          </a>
+          <a href="mailto:alex@helixora.es" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+            </svg>
+            alex@helixora.es
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01" target="_blank" rel="noopener" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:14px;height:14px">
+              <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3.087 0 5.478-2.479 5.478-5.567 0-3.087-2.391-5.481-5.478-5.481z"/>
+            </svg>
+            Upwork
+          </a>
+          <a href="tel:+34624802974" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.35 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+            </svg>
+            +34 624 802 974
           </a>
         </div>
       </div>
@@ -218,62 +238,132 @@
 
 </div><!-- /page-wrapper -->
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="container">
-    <p class="footer__text">
+    <p class="footer__text" data-i18n="footer.text">
       © 2026 <span>Oleksandr Sytnyk</span> · Hecho con precisión y café ✦
     </p>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════════ -->
+<!-- ══ SCRIPTS ══ -->
 <script>
-  /* ── Theme toggle con transición suave ── */
-  const html        = document.documentElement;
-  const themeBtn    = document.getElementById('theme-toggle');
-  const STORAGE_KEY = 'os-theme';
+/* ── CURSOR ── */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let rx = 0, ry = 0, mx = 0, my = 0;
 
-  // Carga preferencia guardada o del sistema
-  const savedTheme  = localStorage.getItem(STORAGE_KEY);
-  const systemDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
-  html.setAttribute('data-theme', initialTheme);
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`; });
 
-  themeBtn.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem(STORAGE_KEY, next);
+(function animRing(){
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+  requestAnimationFrame(animRing);
+})();
+
+document.querySelectorAll('a,button,.skill-chip,.glass-card').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+});
+
+/* ── THEME TOGGLE ── */
+const html     = document.documentElement;
+const themeBtn = document.getElementById('theme-toggle');
+const TKEY     = 'os-theme';
+const saved    = localStorage.getItem(TKEY);
+const sysDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
+html.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+
+themeBtn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem(TKEY, next);
+});
+
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}));
+
+/* ── SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── INTERNATIONALISATION ── */
+const i18n = {
+  es: {
+    'nav.home':'Inicio','nav.about':'Sobre mí','nav.projects':'Proyectos','nav.contact':'Contacto',
+    'hero.eyebrow':'Desarrollador Web · Ingeniero de Integraciones',
+    'hero.subtitle':'Desarrollador web front-end e ingeniero de integraciones hospitalarias. Experiencia real en entornos de producción clínica con <strong>Mirth Connect, HL7 y automatización de procesos</strong>. Construyo soluciones que funcionan de verdad.',
+    'hero.cta1':'Ver proyectos','hero.cta2':'Currículum →',
+    'about.label':'01 — Sobre mí','about.badge':'Disponible para proyectos',
+    'about.h2a':'Código, integraciones y','about.h2b':' resultados reales.',
+    'about.p1':'Soy desarrollador web front-end e ingeniero de integraciones hospitalarias. Trabajo con <strong>Mirth Connect y HL7</strong> en entornos de producción real, conectando sistemas hospitalarios (HIS, EMR, WMS) con robots de automatización clínica.',
+    'about.p2':'Mi diferencial no es solo escribir código limpio — es entender cómo conectan los sistemas, dónde fallan los procesos y cómo resolverlo con tecnología que funciona de verdad en producción.',
+    'about.p3':'Fuera del trabajo, la música fluye a través de la guitarra y el piano. La dualidad entre rigor técnico y expresión artística define cómo abordo cada reto.',
+    'about.stack':'Stack tecnológico',
+    'projects.label':'02 — Proyectos','projects.h2a':'Trabajo ','projects.h2b':'seleccionado',
+    'proj1.title':'Integraciones hospitalarias','proj1.desc':'Diseño e implementación de canales Mirth Connect en entornos hospitalarios reales. Transformaciones HL7 → XML, filtros, destinos múltiples y conexión de sistemas HIS/WMS con robots farmacéuticos.','proj1.link':'Ver en CV →',
+    'proj2.title':'Helixora — Web corporativa','proj2.desc':'Web B2B completa construida desde cero en un único archivo HTML/CSS/JS. Sistema bilingüe, formulario con Web3Forms, responsive mobile-first y despliegue en Vercel con DNS y HTTPS.','proj2.link':'Ver proyecto →',
+    'proj3.title':'Automatización administrativa','proj3.desc':'Herramientas Excel con macros y programas personalizados para eliminar entrada manual de datos, dashboards dinámicos y análisis estadístico con distribución gaussiana.','proj3.link':'Ver en CV →',
+    'contact.label':'03 — Contacto','contact.h2a':'¿Trabajamos ','contact.h2b':'juntos?',
+    'contact.p':'Estoy disponible para integraciones, desarrollo web y automatización. No dudes en escribirme.',
+    'contact.email':'Enviar email',
+    'footer.text':'© 2026 <span>Oleksandr Sytnyk</span> · Hecho con precisión y café ✦',
+  },
+  en: {
+    'nav.home':'Home','nav.about':'About','nav.projects':'Projects','nav.contact':'Contact',
+    'hero.eyebrow':'Front-End Developer · Healthcare Integration Engineer',
+    'hero.subtitle':'Front-end web developer and healthcare integration engineer. Real production experience with <strong>Mirth Connect, HL7 and process automation</strong>. I build solutions that actually work.',
+    'hero.cta1':'View projects','hero.cta2':'Résumé →',
+    'about.label':'01 — About me','about.badge':'Available for projects',
+    'about.h2a':'Code, integrations and','about.h2b':' real results.',
+    'about.p1':'I\'m a front-end developer and healthcare integration engineer. I work with <strong>Mirth Connect and HL7</strong> in real production environments, connecting hospital systems (HIS, EMR, WMS) with clinical automation robots.',
+    'about.p2':'My edge isn\'t just writing clean code — it\'s understanding how systems connect, where processes break down, and how to fix that with technology that actually works in production.',
+    'about.p3':'Outside work, music flows through guitar and piano. The duality between technical rigour and artistic expression defines how I approach every challenge.',
+    'about.stack':'Tech stack',
+    'projects.label':'02 — Projects','projects.h2a':'Selected ','projects.h2b':'work',
+    'proj1.title':'Hospital integrations','proj1.desc':'Design and implementation of Mirth Connect channels in real hospital environments. HL7 → XML transformations, filters, multiple destinations and HIS/WMS systems connected to pharmacy robots.','proj1.link':'View in CV →',
+    'proj2.title':'Helixora — Corporate website','proj2.desc':'Full B2B website built from scratch in a single HTML/CSS/JS file. Bilingual system, Web3Forms integration, mobile-first responsive design, deployed on Vercel with custom DNS and HTTPS.','proj2.link':'View project →',
+    'proj3.title':'Administrative automation','proj3.desc':'Excel tools with macros and custom programs to eliminate manual data entry, dynamic expense dashboards and statistical analysis with Gaussian distribution for anomaly detection.','proj3.link':'View in CV →',
+    'contact.label':'03 — Contact','contact.h2a':'Shall we work ','contact.h2b':'together?',
+    'contact.p':'Available for integrations, web development and automation. Feel free to reach out.',
+    'contact.email':'Send email',
+    'footer.text':'© 2026 <span>Oleksandr Sytnyk</span> · Built with precision and coffee ✦',
+  }
+};
+
+let currentLang = localStorage.getItem('os-lang') || 'es';
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('os-lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
   });
-
-  /* ── Hamburguesa (móvil) ── */
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langBtn === lang);
   });
+}
 
-  // Cierra menú al hacer click en enlace
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
+document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.langBtn));
+});
+applyLang(currentLang);
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
