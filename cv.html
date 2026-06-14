@@ -88,20 +88,24 @@
     <div class="cv-sidebar__section">
       <p class="cv-sidebar__section-title" data-i18n="cv.languages">Idiomas</p>
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span data-i18n="lang.ua">Español</span><span data-i18n="lang.native">Nativo</span></div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.es">Español</span><span data-i18n="lang.native">Nativo</span></div>
         <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>
       </div>
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span data-i18n="lang.es">Inglés</span><span data-i18n="lang.advanced">Avanzado</span></div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.ru">Ruso</span><span data-i18n="lang.native">Nativo</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>
+      </div>
+      <div style="margin-bottom:var(--space-sm)">
+        <div class="cv-skill-bar__label"><span data-i18n="lang.en">Inglés</span><span data-i18n="lang.advanced">Avanzado</span></div>
         <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
       </div>
       <div style="margin-bottom:var(--space-sm)">
-        <div class="cv-skill-bar__label"><span data-i18n="lang.en">Ucraniano</span><span data-i18n="lang.intermediate">Intermedio</span></div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.ua">Ucraniano</span><span data-i18n="lang.intermediate">Intermedio</span></div>
         <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>
       </div>
       <div>
-        <div class="cv-skill-bar__label"><span data-i18n="lang.ru">Ruso</span><span data-i18n="lang.native">Nativo</span></div>
-        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>
+        <div class="cv-skill-bar__label"><span data-i18n="lang.it">Italiano</span><span data-i18n="lang.basic">Básico</span></div>
+        <div class="cv-lang-dot"><span class="active"></span><span class="active"></span><span></span><span></span><span></span></div>
       </div>
     </div>
 
@@ -383,8 +387,8 @@ const i18n = {
     'cv.languages':'Idiomas','cv.skills':'Habilidades','cv.interests':'Intereses',
     'cv.download':'Descargar PDF','cv.profile':'Perfil','cv.experience':'Experiencia',
     'cv.education':'Formación','cv.projects':'Proyectos destacados','cv.other':'Otras habilidades',
-    'lang.ua':'Ucraniano','lang.es':'Español','lang.en':'Inglés','lang.ru':'Ruso',
-    'lang.native':'Nativo','lang.advanced':'Avanzado','lang.intermediate':'Intermedio',
+    'lang.es':'Español','lang.en':'Inglés','lang.ua':'Ucraniano','lang.ru':'Ruso','lang.it':'Italiano',
+    'lang.native':'Nativo','lang.advanced':'Avanzado','lang.intermediate':'Intermedio','lang.basic':'Básico',
     'cv.profileText':'Desarrollador web front-end e ingeniero de integraciones hospitalarias con experiencia real en entornos de producción clínica. Especializado en Mirth Connect, HL7 y automatización de procesos. Fundador de Helixora. Base sólida en física, matemáticas y análisis de datos.',
     'helixora.role':'Fundador · Ingeniero de Integraciones · Desarrollador Web','helixora.date':'2025 — Presente',
     'helixora.desc':'Empresa de modernización digital y automatización para el sector sanitario. Desarrollo de helixora.es, integraciones HL7 con Mirth Connect y captación de clientes B2B en Valencia.',
@@ -415,8 +419,8 @@ const i18n = {
     'cv.languages':'Languages','cv.skills':'Skills','cv.interests':'Interests',
     'cv.download':'Download PDF','cv.profile':'Profile','cv.experience':'Experience',
     'cv.education':'Education','cv.projects':'Featured projects','cv.other':'Other skills',
-    'lang.ua':'Ukrainian','lang.es':'Spanish','lang.en':'English','lang.ru':'Russian',
-    'lang.native':'Native','lang.advanced':'Advanced','lang.intermediate':'Intermediate',
+    'lang.es':'Spanish','lang.en':'English','lang.ua':'Ukrainian','lang.ru':'Russian','lang.it':'Italian',
+    'lang.native':'Native','lang.advanced':'Advanced','lang.intermediate':'Intermediate','lang.basic':'Basic',
     'cv.profileText':'Front-end web developer and healthcare integration engineer with real production experience in clinical environments. Specialised in Mirth Connect, HL7 and process automation. Founder of Helixora. Solid background in physics, mathematics and data analysis.',
     'helixora.role':'Founder · Integration Engineer · Web Developer','helixora.date':'2025 — Present',
     'helixora.desc':'Digital modernisation and automation company for the healthcare sector. Built helixora.es, HL7 integrations with Mirth Connect and B2B client acquisition in Valencia.',
@@ -463,8 +467,6 @@ applyLang(currentLang);
 
 /* ── PDF DOWNLOAD ── */
 document.getElementById('downloadBtn').addEventListener('click', () => {
-  // Reveal contact info that's normally in sidebar links
-  // and trigger browser print (which uses @media print CSS)
   window.print();
 });
 </script>
